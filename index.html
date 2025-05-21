@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+        $(function () {
+            new TypeIt("#companionMethods", {
+                speed: 200,
+                waitUntilVisible: true,
+            })
+                .type("Pott", { delay: 300 })
+                .move(-1)
+                .delete(1)
+                .type("r")
+                .move(null, { to: "END" })
+                .type("folio")
+                .break({ delay: 500 })
+                .break({ delay: 500 })
+                .type('<span class="small-text">Start Now</span>')
+                .go();
+
+            gsap.to("#intro", {
+                duration: 0.5,
+                scale: 3,
+                opacity: 0,
+                delay: 7.5
+            });
+            gsap.to("#wrap", {
+
+            })
+
+        });//script end
+    </script>
+</head>
+
+<body>
+    <div class="intro" id="intro">
+        <video autoplay muted>
+            <source src="img/인트로.mp4">
+        </video>
+
+        <div class="text">
+            <p id="companionMethods"></p>
+        </div><!-- .text end -->
+    </div><!-- .intro end -->
+    <div id="wrap">
+        <header class="header">
+
+        </header><!-- .header end -->
+
+        <main class="main">
+            <section class="main_visual">
+                <div class="main_text">
+                    <div>
+                        <h3>MJ's</h3>
+                        <h3>Web Design</h3>
+                        <h3>Publishing</h3>
+                    </div>
+                </div><!-- .main_text end -->
+
+                <div class="main_line">
+                    <svg width="500" height="339" viewBox="0 0 590 339" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M340.348 29.5017C420.565 55.2988 488.069 94.4129 532.368 136.752C576.722 179.143 597.569 224.504 585.222 262.899C572.874 301.294 529.495 326 468.745 334.591C408.071 343.172 330.421 335.606 250.204 309.809C169.986 284.012 102.482 244.898 58.1834 202.559C13.8293 160.168 -7.0175 114.807 5.32978 76.4117C17.6772 38.0167 61.057 13.3105 121.807 4.7193C182.481 -3.86113 260.13 3.70464 340.348 29.5017Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+
+                    <svg width="609" height="367" viewBox="0 0 709 367" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M311.766 30.1096C408.728 3.03545 501.286 -4.20203 572.527 5.94584C608.149 11.02 638.393 20.4339 661.189 33.8472C683.978 47.2571 699.269 64.6283 705.131 85.6225C710.993 106.617 706.914 129.398 694.368 152.674C681.819 175.956 660.826 199.677 632.986 222.471C577.307 268.058 494.389 309.817 397.427 336.891C300.465 363.965 207.908 371.203 136.667 361.055C101.045 355.981 70.8005 346.567 48.0051 333.153C25.2154 319.744 9.92438 302.372 4.06225 281.377C-1.79969 260.383 2.28002 237.603 14.8259 214.327C27.3751 191.044 48.3676 167.324 76.208 144.53C131.887 98.9427 214.804 57.1837 311.766 30.1096Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+                </div><!-- .main_line end -->
+            </section><!-- .main_visual end -->
+        </main><!-- .main end -->
+    </div><!-- #wrap end -->
+</body>
+
+</html>

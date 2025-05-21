@@ -1,0 +1,85 @@
+@import url("reset.css");
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* #intro */
+.intro {
+    position: absolute;
+    z-index: 9;
+
+    display: none;
+}
+
+.intro video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.intro .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 120px;
+}
+
+.intro .ti-cursor {
+    font-size: 120px;
+}
+
+.small-text {
+    font-size: 50px;
+}
+
+/* header */
+
+/* main_visual */
+.main_visual {
+    height: 100vh;
+    background: url('../img/bg.gif');
+    position: relative;
+}
+
+.main_visual .main_text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.main_visual h3 {
+    font-size: 150px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.main_visual h3:first-child {
+    transform: translateX(-30%);
+}
+
+.main_visual h3:last-child {
+    transform: translateX(30%);
+}
+
+.main_visual .main_line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -30%);
+}
+
+.main_visual .main_line svg:last-child {
+    transform: translateY(-100px);
+}

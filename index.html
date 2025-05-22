@@ -9,10 +9,14 @@
 
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
 
     <!-- Setup and start animation! -->
     <script>
+        gsap.registerPlugin(ScrollTrigger);
+
         $(function () {
             var $top_sq01 = $("#top_sq_01"),
                 $top_sq02 = $("#top_sq_02"),
@@ -20,7 +24,8 @@
                 $bottom_sq01 = $("#bottom_sq_01"),
                 $bottom_sq02 = $("#bottom_sq_02"),
                 $bottom_line = $("#bottom_line")
-                openingTl = gsap.timeline();//{ paused: true }나중에 넣기
+            $intro_t = $("#intro_t")
+            openingTl = gsap.timeline();//{ paused: true }나중에 넣기
 
             new TypeIt("#companionMethods", {
                 speed: 200,
@@ -37,19 +42,39 @@
                 .type('<span class="small-text">Start Now</span>')
                 .go();
 
+            gsap.to("#companionMethods", {
+                opacity: 0,
+                delay: 7.5
+            })
+
             gsap.to("#intro", {
-                duration: 0.5,
+                duration: 3,
                 scale: 1.5,
                 opacity: 0,
                 delay: 7.5,
                 onComplete: function () {
-                    //openingTl.play(); 이것도 같이 넣기
+                    //openingTl.play();
                 }
             });
 
+
             openingTl
-            .from($top_sq02, { duration: 0.8, opacity: 0, y: 100 })
-            .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 })
+                .from($top_sq02, { duration: 0.8, opacity: 0, y: 100 })
+                .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
+                .from($top_line, { duration: 1, height: 0, delay: 0.5 })
+                .from($bottom_line, { duration: 1, height: 0 }, "<")
+
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.project',
+                    start: 'top 95%',
+                    end: '30% 0%',
+                    scrub: 1,
+                    markers: true
+                }
+            })
+            .fromTo ('')
         });//script end
     </script>
 </head>
@@ -60,7 +85,7 @@
             <source src="img/인트로.mp4">
         </video>
 
-        <div class="text">
+        <div class="text" id="intro_t">
             <p id="companionMethods"></p>
         </div><!-- .text end -->
     </div><!-- .intro end -->
@@ -114,8 +139,31 @@
                     </div><!-- .text_bottom end -->
                 </div><!-- .text_mask end -->
             </section><!-- .main_visual end -->
+
+            <section class="project">
+                <h5 class="P_title">Project</h5>
+
+                <div class="P_line">
+                    <svg class="circle_01" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+
+                    <svg class="circle_02" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+                </div>
+            </section>
+
         </main><!-- .main end -->
     </div><!-- #wrap end -->
+
+
 </body>
 
 </html>

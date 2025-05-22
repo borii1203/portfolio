@@ -4,6 +4,11 @@ body {
     position: relative;
     overflow-x: hidden;
 }
+section {
+    margin-bottom: 120px;
+    height: 100vh;
+    border: 3px solid blue;
+}
 
 /* #intro */
 .intro {
@@ -39,6 +44,7 @@ body {
 /* header */
 #wrap {
     position: relative;
+    background: url('../img/bg.gif');
 }
 
 .header {
@@ -70,7 +76,6 @@ body {
 /* main_visual */
 .main_visual {
     height: 100vh;
-    background: url('../img/bg.gif');
     position: relative;
 }
 
@@ -81,6 +86,13 @@ body {
     align-items: center;
     justify-content: center;
     text-align: start;
+    --perspective-x: 0;
+    --perspective-y: 0;
+    --color-accent: rgba(145, 132, 218, 0.6);
+    font-size: 150px;
+    color: #fff;
+    line-height: 1.2;
+    text-shadow: calc(-0.02em*(1 + var(--perspective-x))) calc(.02em*(1 + var(--perspective-y))) 0 var(--color-accent), calc(-0.04em*(1 + var(--perspective-x))) calc(.04em*(1 + var(--perspective-y))) 0 var(--color-accent), calc(-0.06em*(1 + var(--perspective-x))) calc(.06em*(1 + var(--perspective-y))) 0 var(--color-accent), 0 .35em .3em rgba(208, 105, 255, 0.3), 0 .25em .2em rgba(82, 84, 187, 0.6);
 
     position: absolute;
     top: 0;
@@ -88,9 +100,8 @@ body {
 }
 
 .main_visual h3 {
-    font-size: 150px;
-    color: #fff;
-    line-height: 1.2;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
 }
 
 .main_visual h3:first-child {
@@ -123,6 +134,7 @@ body {
     bottom: 2%;
     left: 2%;
 }
+
 #text_bottom {
     position: absolute;
     top: 2%;
@@ -132,18 +144,33 @@ body {
 #top_sq_01,
 #top_sq_02,
 #bottom_sq_01,
-#bottom_sq_02
-{
+#bottom_sq_02 {
     width: 5px;
     height: 5px;
     border-radius: 50%;
     background-color: #fff;
 }
 
-#top_line, 
+#top_line,
 #bottom_line {
     width: 1px;
     height: 300px;
     margin: 0 auto;
     background-color: #fff;
+}
+
+.project h5 {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    margin-block: 70px;
+}
+
+.P_line svg {
+    display: block;
+    margin:  0 auto;
+}
+
+.P_line .circle_02 {
+    transform: scaleY(-1) translateY(100%);
 }

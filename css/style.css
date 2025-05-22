@@ -5,9 +5,7 @@ body {
     overflow-x: hidden;
 }
 section {
-    margin-bottom: 120px;
     height: 100vh;
-    border: 3px solid blue;
 }
 
 /* #intro */
@@ -15,6 +13,7 @@ section {
     position: absolute;
     z-index: 9;
     display: none;
+    transform: scale(1);
 }
 
 .intro video {
@@ -158,19 +157,32 @@ section {
     margin: 0 auto;
     background-color: #fff;
 }
-
+.project {
+    position: relative;
+}
 .project h5 {
     font-size: 80px;
     color: #fff;
     text-align: center;
     margin-block: 70px;
 }
-
+.P_title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .P_line svg {
     display: block;
     margin:  0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
 }
 
 .P_line .circle_02 {
-    transform: scaleY(-1) translateY(100%);
+    transform:translate(-50%, -50%) scaleY(-1) ;
 }

@@ -68,13 +68,25 @@
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.project',
-                    start: 'top 95%',
-                    end: '30% 0%',
+                    start: '10% 50%',
+                    end: '70% 90%',
                     scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.P_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.circle_01',
+                    start: '20% 50%',
+                    end: 'bottom 82%',
+                    scrub: 2,
                     markers: true
                 }
             })
-            .fromTo ('')
+                .to('.circle_01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .to('.circle_02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
         });//script end
     </script>
 </head>
@@ -89,6 +101,7 @@
             <p id="companionMethods"></p>
         </div><!-- .text end -->
     </div><!-- .intro end -->
+
     <div id="wrap">
         <header class="header">
             <nav class="nav">
@@ -160,6 +173,9 @@
                 </div>
             </section>
 
+            <section class="section">
+
+            </section>
         </main><!-- .main end -->
     </div><!-- #wrap end -->
 

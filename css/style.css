@@ -3,10 +3,13 @@
 body {
     position: relative;
     overflow-x: hidden;
+    color: #111;
 }
+
 section {
     height: 100vh;
 }
+
 
 /* #intro */
 .intro {
@@ -157,24 +160,132 @@ section {
     margin: 0 auto;
     background-color: #fff;
 }
+
+
+/* wh_start */
+.wh_start {
+    overflow: hidden;
+    position: relative;
+}
+
+.wh_start span {
+    display: blcok;
+    background-color: #eee;
+    width: 2500px;
+    height: 2500px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wh_start .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-size: 48px;
+    line-height: 1.2;
+    z-index: 5;
+}
+
+
+/* profile */
+.profile {
+    background-color: #eee;
+    display: flex;
+}
+
+.profile .inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.profile .inner .main_profile .image {
+    height: 350px;
+    width: 200px;
+    border-radius: 100%;
+    background-color: #111;
+    position: relative;
+}
+.profile .inner .main_profile .image svg {
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translateY(-50%);
+}
+.profile .inner .main_profile .basic_info {
+    margin-top: 150px;
+}
+
+.profile .inner .main_profile li {
+    margin-bottom: 12px;
+    display: flex;
+}
+
+.profile .inner .main_profile li span {
+    display: block;
+    font-size: 20px;
+}
+
+.profile .inner .main_profile .info_t {
+    margin-right: 20px;
+}
+
+.profile .inner .sub_profile>div {
+    margin-bottom: 80px;
+}
+
+.profile .inner .sub_profile li {
+    margin-bottom: 8px;
+}
+
+.profile .inner .sub_profile .skill ul {
+    display: flex;
+
+}
+
+.profile .inner .sub_profile .skill img {
+    height: 35px;
+}
+
+.profile .inner .sub_profile a {
+    display: inline-block;
+    border: 1px solid #1c1c1c;
+    border-radius: 100px;
+    padding-inline: 80px;
+    padding-block: 10px;
+}
+
+
+/* project */
 .project {
     position: relative;
 }
+
 .project h5 {
     font-size: 80px;
     color: #fff;
     text-align: center;
     margin-block: 70px;
 }
+
 .P_title {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .P_line svg {
     display: block;
-    margin:  0 auto;
+    margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -184,5 +295,5 @@ section {
 }
 
 .P_line .circle_02 {
-    transform:translate(-50%, -50%) scaleY(-1) ;
+    transform: translate(-50%, -50%) scaleY(-1);
 }

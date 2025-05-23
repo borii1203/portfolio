@@ -64,6 +64,27 @@
                 .from($top_line, { duration: 1, height: 0, delay: 0.5 })
                 .from($bottom_line, { duration: 1, height: 0 }, "<")
 
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.wh_start',
+                    start: 'top 50%',
+                    end: '30% top',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.circle', { 'width': '0', 'height': '0', 'duration': '10', 'ease': 'elastic', 'top': '5%' }, { 'width': '2500px', 'height': '2500px', 'duration': '10', 'top': '30%' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.wh_start .text',
+                    start: '0 80%',
+                    end: '100% 80%',
+                    scrub: 1,
+                    markers: true
+                }
+            })
+                .fromTo('.wh_start .text', { 'top': '80%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '50%', 'duration': '5', 'opacity': '1' })
 
             gsap.timeline({
                 scrollTrigger: {
@@ -78,15 +99,15 @@
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.circle_01',
+                    trigger: '.L_circle_01',
                     start: '20% 50%',
                     end: 'bottom 82%',
                     scrub: 2,
-                    markers: true
+                    //markers: true
                 }
             })
-                .to('.circle_01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
-                .to('.circle_02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .to('.L_circle_01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .to('.L_circle_02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
         });//script end
     </script>
 </head>
@@ -153,18 +174,111 @@
                 </div><!-- .text_mask end -->
             </section><!-- .main_visual end -->
 
+            <section class="wh_start">
+                <span class="circle"></span>
+                <div class="text">
+                    Passionate <br>
+                    Lorem, ipsum dolor sit amet consectetur adipisi
+                </div><!-- .text end -->
+            </section><!-- wh_start. end -->
+
+            <section class="profile">
+                <div class="inner">
+                    <div class="main_profile">
+                        <div class="image">
+                            <img src="img/" alt="">
+                            <svg width="386" height="264" viewBox="0 0 386 264" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M236.255 56.7338C287.928 86.3132 329.807 121.601 355.75 154.72C368.723 171.281 377.692 187.276 381.923 201.722C386.153 216.166 385.634 229.011 379.716 239.35C373.798 249.688 362.985 256.64 348.387 260.306C333.787 263.973 315.454 264.338 294.604 261.538C252.908 255.938 201.271 237.695 149.598 208.116C97.9254 178.536 56.0464 143.248 30.103 110.128C17.1305 93.5677 8.16128 77.5737 3.93024 63.1274C-0.300125 48.6831 0.218932 35.8379 6.13676 25.4998C12.0547 15.1617 22.8683 8.20953 37.466 4.54302C52.0658 0.876009 70.3996 0.510329 91.2493 3.3105C132.946 8.91047 184.581 27.1544 236.255 56.7338Z"
+                                    stroke="#111111" stroke-width="1.18481" />
+                            </svg>
+
+                        </div>
+
+                        <ul class="basic_info">
+                            <li>
+                                <span class="info_t">Name</span>
+                                <span>서민지</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Birth</span>
+                                <span>1998.12.25</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Phone</span>
+                                <span>010-4750-5206</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Email</span>
+                                <span>1minji@naver.com</span>
+                            </li>
+                        </ul><!-- .basic_info end -->
+                    </div><!-- .main_profile end -->
+
+                    <div class="sub_profile">
+                        <div class="certification">
+                            <p>certification</p>
+
+                            <ul>
+                                <li>어</li>
+                                <li>쩌</li>
+                                <li>구</li>
+                                <li>저쩌구</li>
+                            </ul>
+                        </div><!-- .certification end -->
+
+                        <div class="education">
+                            <p>education</p>
+                            <ul>
+                                <li>
+                                    <span>동아대학교 중국어학과 졸업(경영학과 복수전공)</span>
+                                    <span>when</span>
+                                </li>
+
+                                <li>
+                                    <span>그린컴퓨터 아카데미 트렌디한 UI/UX 반응형 웹제작을 위한 웹퍼블리셔 양성과정 수료</span>
+
+                                    <span>when</span>
+                                </li>
+                            </ul>
+                        </div><!-- .education end -->
+
+                        <div class="skill">
+                            <p>skill</p>
+                            <ul>
+                                <li><img src="img/photoshop.png" alt=""></li>
+                                <li><img src="img/illustrator.png" alt=""></li>
+                                <li><img src="img/html.png" alt=""></li>
+                                <li><img src="img/css.png" alt=""></li>
+                                <li><img src="img/scss.svg" alt=""></li>
+                                <li><img src="img/js.png" alt=""></li>
+                                <li><img src="img/jquery.png" alt=""></li>
+                                <li><img src="img/github.png" alt=""></li>
+                                <li><img src="img/react.png" alt=""></li>
+                            </ul>
+                        </div><!-- .skil end -->
+
+                        <a href="#">이력서 확인하기</a>
+                    </div><!-- .sub_profile end -->
+                </div><!-- .inner end -->
+            </section><!-- .profile end -->
+
             <section class="project">
                 <h5 class="P_title">Project</h5>
 
                 <div class="P_line">
-                    <svg class="circle_01" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                    <svg class="L_circle_01" width="870" height="595" viewBox="0 0 870 595" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
                             stroke="white" stroke-width="2" />
                     </svg>
 
-                    <svg class="circle_02" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                    <svg class="L_circle_02" width="870" height="595" viewBox="0 0 870 595" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
@@ -173,9 +287,6 @@
                 </div>
             </section>
 
-            <section class="section">
-
-            </section>
         </main><!-- .main end -->
     </div><!-- #wrap end -->
 

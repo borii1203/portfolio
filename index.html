@@ -48,7 +48,7 @@
             })
 
             gsap.to("#intro", {
-                duration: 3,
+                duration: 0.5,
                 scale: 1.5,
                 opacity: 0,
                 delay: 7.5,
@@ -59,7 +59,7 @@
 
 
             openingTl
-                .from($top_sq02, { duration: 0.8, opacity: 0, y: 100 })
+                .from($top_sq02, { duration: 0.5, opacity: 0, y: 100 })
                 .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
                 .from($top_line, { duration: 1, height: 0, delay: 0.5 })
                 .from($bottom_line, { duration: 1, height: 0 }, "<")
@@ -67,8 +67,8 @@
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.wh_start',
-                    start: 'top 50%',
-                    end: '30% top',
+                    start: '-10% 50%',
+                    end: '60% 60%',
                     scrub: 1,
                     //markers: true
                 }
@@ -81,33 +81,44 @@
                     start: '0 80%',
                     end: '100% 80%',
                     scrub: 1,
-                    markers: true
+                    //markers: true
                 }
             })
                 .fromTo('.wh_start .text', { 'top': '80%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '50%', 'duration': '5', 'opacity': '1' })
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.project',
+                    trigger: '.wh_end',
+                    start: '80% 60%',
+                    end: '110% 50%',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.circle02', { 'width': '2500px', 'height': '2500px', 'duration': '5', 'bottom': '30%', 'ease': 'elastic' }, { 'width': '0', 'height': '0', 'bottom': '5%' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.clone',
                     start: '10% 50%',
                     end: '70% 90%',
                     scrub: 1,
                     //markers: true
                 }
             })
-                .fromTo('.P_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
+                .fromTo('.C_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.L_circle_01',
+                    trigger: '.C_line01',
                     start: '20% 50%',
-                    end: 'bottom 82%',
+                    end: 'bottom 90%',
                     scrub: 2,
                     //markers: true
                 }
             })
-                .to('.L_circle_01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
-                .to('.L_circle_02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .to('.C_line01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .to('.C_line02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
         });//script end
     </script>
 </head>
@@ -139,9 +150,9 @@
             <section class="main_visual">
                 <div class="main_text">
                     <div>
-                        <h3>MJ's</h3>
-                        <h3>Web Design</h3>
-                        <h3>Publishing</h3>
+                        <h3 class="stroke">MJ's</h3>
+                        <h3 class="stroke">Web Design</h3>
+                        <h3 class="stroke">Publishing</h3>
                     </div>
                 </div><!-- .main_text end -->
 
@@ -186,7 +197,7 @@
                 <div class="inner">
                     <div class="main_profile">
                         <div class="image">
-                            <img src="img/" alt="">
+                            <img src="img/이력서.jpg" alt="">
                             <svg width="386" height="264" viewBox="0 0 386 264" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -221,72 +232,382 @@
 
                     <div class="sub_profile">
                         <div class="certification">
-                            <p>certification</p>
+                            <p>Certification</p>
 
                             <ul>
-                                <li>어</li>
-                                <li>쩌</li>
-                                <li>구</li>
-                                <li>저쩌구</li>
+                                <li>
+                                    <span>Gtqi 일러스트 1급</span>
+                                    <span class="date">2025.03</span>
+                                </li>
+
+                                <li>
+                                    <span>자동차운전면허 2종보통</span>
+                                    <span class="date">2017.03</span>
+                                </li>
                             </ul>
                         </div><!-- .certification end -->
 
                         <div class="education">
-                            <p>education</p>
+                            <p>Education</p>
                             <ul>
                                 <li>
                                     <span>동아대학교 중국어학과 졸업(경영학과 복수전공)</span>
-                                    <span>when</span>
+                                    <span class="date">2022.07</span>
                                 </li>
 
                                 <li>
                                     <span>그린컴퓨터 아카데미 트렌디한 UI/UX 반응형 웹제작을 위한 웹퍼블리셔 양성과정 수료</span>
 
-                                    <span>when</span>
+                                    <span class="date">2025.06</span>
                                 </li>
                             </ul>
                         </div><!-- .education end -->
 
                         <div class="skill">
-                            <p>skill</p>
+                            <p>Skill</p>
                             <ul>
-                                <li><img src="img/photoshop.png" alt=""></li>
-                                <li><img src="img/illustrator.png" alt=""></li>
-                                <li><img src="img/html.png" alt=""></li>
-                                <li><img src="img/css.png" alt=""></li>
-                                <li><img src="img/scss.svg" alt=""></li>
-                                <li><img src="img/js.png" alt=""></li>
-                                <li><img src="img/jquery.png" alt=""></li>
-                                <li><img src="img/github.png" alt=""></li>
-                                <li><img src="img/react.png" alt=""></li>
+                                <li><img src="img/photoshop.png" alt="photoshop"></li>
+                                <li><img src="img/illustrator.png" alt="illustrator"></li>
+                                <li><img src="img/html.png" alt="html"></li>
+                                <li><img src="img/css.png" alt="css"></li>
+                                <li><img src="img/scss.svg" alt="scss"></li>
+                                <li><img src="img/js.png" alt="js"></li>
+                                <li><img src="img/jquery.png" alt="jquery"></li>
+                                <li><img src="img/github.png" alt="github"></li>
+                                <li><img src="img/react.png" alt="react"></li>
                             </ul>
                         </div><!-- .skil end -->
 
                         <a href="#">이력서 확인하기</a>
                     </div><!-- .sub_profile end -->
                 </div><!-- .inner end -->
+
+                <div id="text_mask">
+                    <div id="text_top">
+                        <div id="top_sq_01"></div>
+                        <div id="top_line"></div>
+                        <div id="top_sq_02"></div>
+                    </div><!-- .top_line end -->
+
+                    <div id="text_bottom">
+                        <div id="bottom_sq_01"></div>
+                        <div id="bottom_line"></div>
+                        <div id="bottom_sq_02"></div>
+                    </div><!-- .text_bottom end -->
+                </div><!-- .text_mask end -->
             </section><!-- .profile end -->
 
-            <section class="project">
-                <h5 class="P_title">Project</h5>
+            <section class="renewal">
+                <div class="inner">
+                    <div class="item bamu_hotel">
+                        <div class="image">
+                            <span></span>
+                        </div><!-- .image end -->
 
-                <div class="P_line">
-                    <svg class="L_circle_01" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                        <div class="info_text">
+                            <p class="name">B'AMU hotel&spa</p>
+                            <span>호텔 '바뮤'홈페이지 리뉴얼입니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Website</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Figma, Photoshop</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="#">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-b-amu-hotel/">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item oa">
+                        <div class="image">
+                            <span></span>
+                        </div><!-- .image end -->
+
+                        <div class="info_text">
+                            <p class="name">oa</p>
+                            <span>일상제품을 판매하는 '오아'홈페이지 리뉴얼입니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Website</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Photoshop</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="#">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-oa/">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item tabling">
+                        <div class="image">
+                            <span></span>
+                        </div><!-- .image end -->
+
+                        <div class="info_text">
+                            <p class="name">테이블링</p>
+                            <span>웨이팅 어플 '테이블링'앱 리뉴얼입니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Mobile App</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Figma, Illustrator</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="#">PROCESS</a>
+                                <a class="line_color"
+                                    href="https://www.figma.com/design/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=QExgGWP4MRte4Jdc-0">FIGMA</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item bamu_hotel">
+                        <div class="image">
+                            <span></span>
+                        </div><!-- .image end -->
+
+                        <div class="info_text">
+                            <p class="name">B'AMU hotel&spa</p>
+                            <span>호텔 '바뮤'홈페이지 리뉴얼입니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Website</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="#">PROCESS</a>
+                                <a class="line_color" href="#">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+                </div><!-- .inner end -->
+            </section><!-- .renewal end -->
+
+            <section class="wh_end">
+                <span class="circle02"></span>
+            </section><!-- .wh_end end -->
+
+            <section class="clone">
+                <div class="C_title">
+                    <h5>Project</h5>
+
+                    <p>여러 모작했던 사이트들입니다</p>
+                </div><!-- .C_title end -->
+
+                <div class="C_line">
+                    <svg class="C_line01" width="700" height="595" viewBox="0 0 870 595" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
                             stroke="white" stroke-width="2" />
                     </svg>
 
-                    <svg class="L_circle_02" width="870" height="595" viewBox="0 0 870 595" fill="none"
+                    <svg class="C_line02" width="700" height="595" viewBox="0 0 870 595" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
                             stroke="white" stroke-width="2" />
                     </svg>
-                </div>
-            </section>
+                </div><!-- .C_line end -->
 
+                <div class="item festival">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/음악제_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/clone_coding-deagwangryeong-musical/#">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item b_item_left">
+                        <img src="img/음악제_메인.JPG" alt="">
+
+                        <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item jeulgeoun">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/즐거운_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/clone_coding-jeulgeoun/">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item b_item_left">
+                        <img src="img/즐거운_메인.JPG" alt="">
+
+                        <p>Java Script를 이용하여 헤더의 색상 변화와 스크롤의 값을 구하여 Top버튼의 유무를 조절하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item skelterlabs">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/스켈터랩스_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/skelter-labs/">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item b_item_right">
+                        <img src="img/스켈터랩스_메인.JPG" alt="">
+
+                        <p>responsive-breakpoint를 이용하여 반응형에 따른 슬라이드 개수 값을 조절하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item moneytree">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/머니트리_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/clone_coding-moneytree/">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item b_item_right">
+                        <img src="img/머니트리_메인.JPG" alt="">
+
+                        <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드 들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+            </section><!-- .clone end -->
+
+            <section class="graphic_design">
+                <div class="inner">
+                    <div class="image_wrap">
+                        <img src="img/airplane.jpg" alt="">
+                        <img src="img/수딩크림.jpg" alt="">
+                        <img src="img/티트리세럼.jpg" alt="">
+                        <img src="img/bloom.jpg" alt="">
+                        <img src="img/speed.jpg" alt="">
+                        <img src="img/mountain.jpg" alt="">
+                        <img src="img/finestay.gif" alt="">
+                        <img src="img/부산홍보.jpg" alt="">
+                    </div><!-- .image_wrap end -->
+                </div><!-- .inner end -->
+            </section><!-- .graphic_design end -->
+
+            <section class="contact">
+                <div class="text_wrap">
+                    <h5 class="stroke">Contact Me?</h5>
+
+                    <div class="info_wrap">
+                        <div class="left wh_box">
+                            <div class="inner">
+                                <span>I'm professional person</span>
+                            </div><!-- .inner end -->
+                        </div><!-- .last_word end -->
+
+                        <div class="right wh_box">
+                            <div class="inner">
+                                <p>Thank you for watching</p>
+
+                                <ul>
+                                    <li>
+                                        <span class="icon_k icon"></span>
+                                        <span>010-4750-5206</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="icon_m icon"></span>
+                                        <span>1minji@naver.com</span>
+                                    </li>
+                                </ul>
+
+                                <div class="flex">
+                                    <a href="https://github.com/borii1203">GitHub</a>
+                                    <a href="#">Download portfolio</a>
+
+                                    <img src="img/kakaotalk.jpg" alt="">
+                                </div><!-- .flex end -->
+                            </div><!-- .inner end -->
+                        </div><!-- .sns_info end -->
+                    </div><!-- .info_wrap end -->
+                </div><!-- .text_wrap end -->
+
+                <div class="image_wrap">
+                    <img class="planet planet_b" src="img/planet_01.png" alt="">
+                    <img class="planet planet_t" src="img/planet_04.png" alt="">
+                    <img class="star_t" src="img/star.png" alt="">
+                    <img class="star_m" src="img/star.png" alt="">
+                    <img class="star_b" src="img/star.png" alt="">
+                </div><!-- .image_wrap end -->
+            </section><!-- .contact end -->
         </main><!-- .main end -->
     </div><!-- #wrap end -->
 

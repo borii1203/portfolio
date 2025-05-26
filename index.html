@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MJ portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
 
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script type="text/javascript" src="https://cydstumpel.nl/wp-content/themes/portfolio-2025/assets/main.js?ver=3034"
+        id="theme-appjs-js"></script>
 
 
     <!-- Setup and start animation! -->
@@ -147,28 +150,39 @@
         </header><!-- .header end -->
 
         <main class="main">
-            <section class="main_visual">
-                <div class="main_text">
-                    <div>
-                        <h3 class="stroke">MJ's</h3>
-                        <h3 class="stroke">Web Design</h3>
-                        <h3 class="stroke">Publishing</h3>
-                    </div>
-                </div><!-- .main_text end -->
+            <section class="homepage-header" style="--color-accent: #8082f8;">
+                <div class="homepage-header__titles">
 
-                <div class="main_line">
-                    <svg width="500" height="339" viewBox="0 0 590 339" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M340.348 29.5017C420.565 55.2988 488.069 94.4129 532.368 136.752C576.722 179.143 597.569 224.504 585.222 262.899C572.874 301.294 529.495 326 468.745 334.591C408.071 343.172 330.421 335.606 250.204 309.809C169.986 284.012 102.482 244.898 58.1834 202.559C13.8293 160.168 -7.0175 114.807 5.32978 76.4117C17.6772 38.0167 61.057 13.3105 121.807 4.7193C182.481 -3.86113 260.13 3.70464 340.348 29.5017Z"
-                            stroke="white" stroke-width="2" />
-                    </svg>
+                    <h1 class="homepage-header__title homepage-header__title--top huge-hero vf caps start"
+                        aria-hidden="true">
+                        MJ's </h1>
 
-                    <svg width="609" height="367" viewBox="0 0 709 367" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M311.766 30.1096C408.728 3.03545 501.286 -4.20203 572.527 5.94584C608.149 11.02 638.393 20.4339 661.189 33.8472C683.978 47.2571 699.269 64.6283 705.131 85.6225C710.993 106.617 706.914 129.398 694.368 152.674C681.819 175.956 660.826 199.677 632.986 222.471C577.307 268.058 494.389 309.817 397.427 336.891C300.465 363.965 207.908 371.203 136.667 361.055C101.045 355.981 70.8005 346.567 48.0051 333.153C25.2154 319.744 9.92438 302.372 4.06225 281.377C-1.79969 260.383 2.28002 237.603 14.8259 214.327C27.3751 191.044 48.3676 167.324 76.208 144.53C131.887 98.9427 214.804 57.1837 311.766 30.1096Z"
-                            stroke="white" stroke-width="2" />
-                    </svg>
-                </div><!-- .main_line end -->
+                    <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps"
+                        aria-hidden="true">
+                        Web Design</h1>
+
+                    <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps end"
+                        aria-hidden="true">
+                        Publising </h1>
+
+                    <div class="main_line">
+                        <svg width="500" height="339" viewBox="0 0 590 339" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M340.348 29.5017C420.565 55.2988 488.069 94.4129 532.368 136.752C576.722 179.143 597.569 224.504 585.222 262.899C572.874 301.294 529.495 326 468.745 334.591C408.071 343.172 330.421 335.606 250.204 309.809C169.986 284.012 102.482 244.898 58.1834 202.559C13.8293 160.168 -7.0175 114.807 5.32978 76.4117C17.6772 38.0167 61.057 13.3105 121.807 4.7193C182.481 -3.86113 260.13 3.70464 340.348 29.5017Z"
+                                stroke="white" stroke-width="2" />
+                        </svg>
+
+                        <svg width="609" height="367" viewBox="0 0 709 367" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M311.766 30.1096C408.728 3.03545 501.286 -4.20203 572.527 5.94584C608.149 11.02 638.393 20.4339 661.189 33.8472C683.978 47.2571 699.269 64.6283 705.131 85.6225C710.993 106.617 706.914 129.398 694.368 152.674C681.819 175.956 660.826 199.677 632.986 222.471C577.307 268.058 494.389 309.817 397.427 336.891C300.465 363.965 207.908 371.203 136.667 361.055C101.045 355.981 70.8005 346.567 48.0051 333.153C25.2154 319.744 9.92438 302.372 4.06225 281.377C-1.79969 260.383 2.28002 237.603 14.8259 214.327C27.3751 191.044 48.3676 167.324 76.208 144.53C131.887 98.9427 214.804 57.1837 311.766 30.1096Z"
+                                stroke="white" stroke-width="2" />
+                        </svg>
+                    </div><!-- .main_line end -->
+                </div>
+
+
 
                 <div id="text_mask">
                     <div id="text_top">
@@ -551,12 +565,12 @@
                 <div class="inner">
                     <div class="image_wrap">
                         <img src="img/airplane.jpg" alt="">
-                        <img src="img/수딩크림.jpg" alt="">
+                        <img src="img/컬리02.jpg" alt="">
                         <img src="img/티트리세럼.jpg" alt="">
                         <img src="img/bloom.jpg" alt="">
                         <img src="img/speed.jpg" alt="">
-                        <img src="img/mountain.jpg" alt="">
-                        <img src="img/finestay.gif" alt="">
+                        <img src="img/앨범표지.jpg" alt="">
+                        <img src="img/여름-세일.jpg" alt="">
                         <img src="img/부산홍보.jpg" alt="">
                     </div><!-- .image_wrap end -->
                 </div><!-- .inner end -->
@@ -611,7 +625,286 @@
         </main><!-- .main end -->
     </div><!-- #wrap end -->
 
+    <style id='acf-homepage-header-style-inline-css' type='text/css'>
+        :root {
+            --ease-in-sine: cubic-bezier(0.12, 0, 0.39, 0);
+            --ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
+            --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+            --ease-in-quad: cubic-bezier(0.11, 0, 0.5, 0);
+            --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+            --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+            --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+            --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+            --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+            --ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+            --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+            --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+            --ease-in-circ: cubic-bezier(0.55, 0, 1, 0.45);
+            --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
+            --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+            --ease-in-back: cubic-bezier(0.36, 0, 0.66, -0.56);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            --ease-in-elastic: cubic-bezier(0.36, 0.66, 0.04, 1.44);
+            --ease-out-elastic: cubic-bezier(0.6, -0.24, 0.4, 0.8);
+            --ease-in-out-elastic: cubic-bezier(0.58, 0.82, 0.42, 1.18);
+            --ease-in-bounce: cubic-bezier(0.71, 0.03, 0.83, 0.67);
+            --ease-out-bounce: cubic-bezier(0.17, 0.67, 0.29, 0.99);
+            --ease-in-out-bounce: cubic-bezier(0.85, 0.01, 0.98, 0.99);
+            --default-ease: var(--ease-in-out-quart)
+        }
 
+        .sr-only:not(:focus):not(:active) {
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%)
+        }
+
+        @keyframes fadeIn {
+            100% {
+                opacity: 1
+            }
+        }
+
+        :root {
+            --background: rgba(255, 245, 238, 0);
+            --padding: max(1rem, 1.6666666667vw)
+        }
+
+        @keyframes breathe {
+            to {
+                transform: translateY(-3.5em)
+            }
+        }
+
+        .homepage-header {
+            --perspective-x: 0;
+            --perspective-y: 0;
+            overflow-x: clip;
+            padding: clamp(4rem, 5.5555555556vw, 5vh) var(--padding) 0;
+            text-align: center;
+            color: var(--color-accent);
+            perspective: 800px;
+            view-timeline: --homepage-header y;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+        }
+
+        .homepage-header__titles {
+            position: relative;
+            z-index: 1;
+            -webkit-text-stroke: 1px #fff;
+            font-size: 150px;
+            color: var(--background);
+            transform-style: preserve-3d;
+        }
+
+        .homepage-header__title {
+            animation-timeline: --homepage-header;
+            animation-range: entry 100lvh exit
+        }
+
+        .homepage-header__title--top {
+            padding-top: .1em;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media(prefers-reduced-motion: no-preference) {
+            .homepage-header__title--top {
+                transform: translateZ(4.8611111111vw)
+            }
+
+            @supports(animation-timeline: view(y)) {
+                .homepage-header__title--top {
+                    animation-name: ytuc-top
+                }
+            }
+        }
+
+        .homepage-header__title--bottom {
+            transform: translateZ(-0.6944444444vw);
+            margin-top: .18em;
+            padding-bottom: .2em;
+            font-variation-settings: "ytuc" 0
+        }
+
+        @media(prefers-reduced-motion: no-preference) {
+            @supports(animation-timeline: view(y)) {
+                .homepage-header__title--bottom {
+                    animation-name: ytuc-bottom
+                }
+            }
+        }
+
+        .homepage-header .moons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none
+        }
+
+        .homepage-header .moons .item {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards
+        }
+
+        .homepage-header .moons img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: max(3rem, 4.1666666667vw);
+            height: max(3rem, 4.1666666667vw);
+            object-fit: contain;
+            transform-origin: 50% 50%;
+            transform-box: fill-box
+        }
+
+        .homepage-header .motionpath {
+            position: absolute;
+            top: -15%;
+            left: -25%;
+            width: 200%;
+            height: auto;
+            transform: rotateX(35deg) rotateY(-10deg);
+            pointer-events: none
+        }
+
+        @media only screen and (min-width: 0px)and (max-width: 1024px) {
+            .homepage-header .motionpath {
+                width: 160%;
+                left: -30%
+            }
+        }
+
+        .homepage-header__ellipse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            --z: -10.4166666667vw;
+            transform: translate(-50%, -75%) translateZ(var(--z)) rotateX(75deg) rotateY(0deg);
+            width: 65.8333333333vw;
+            height: auto;
+            z-index: 1;
+            stroke: var(--color-accent);
+            min-width: 350px;
+            overflow: visible;
+            pointer-events: none
+        }
+
+        @media only screen and (min-width: 0px)and (max-width: 750px) {
+            .homepage-header__ellipse {
+                display: none
+            }
+        }
+
+        @media(prefers-reduced-motion: no-preference) {
+            .homepage-header__ellipse {
+                animation: rotate-ellipse 30s var(--ease-out-quad) forwards infinite
+            }
+        }
+
+        @media(prefers-reduced-motion: no-preference) {
+            .homepage-header__ellipse #dash-offset {
+                stroke-dashoffset: 9088;
+                stroke-dasharray: 9088, 18176;
+                animation: fill-ellipse 4s .2s var(--ease-out-quad) forwards
+            }
+        }
+
+        .homepage-header__ellipse .transform-1,
+        .homepage-header__ellipse .transform-2,
+        .homepage-header__ellipse .transform-3 {
+            visibility: hidden
+        }
+
+        .homepage-header__ticker {
+            position: relative;
+            width: 100%;
+            height: 1em;
+            height: 1lh;
+            overflow: hidden
+        }
+
+        @media only screen and (min-width: 0px)and (max-width: 1024px) {
+            .homepage-header__ticker {
+                font-size: 1rem
+            }
+        }
+
+        .homepage-header__ticker:has(.homepage-header__tick:focus-within) .homepage-header__tick {
+            transform: translateY(-1.1em) !important
+        }
+
+        .homepage-header__tick {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform: translateY(-1.1em);
+            background: var(--background)
+        }
+
+        .homepage-header__tick:has(:focus-within) {
+            transform: translateY(0) !important
+        }
+
+        @keyframes fill-ellipse {
+            0% {
+                stroke-dashoffset: 9088
+            }
+
+            100% {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes ytuc-top {
+            from {
+                font-variation-settings: "ytuc" 100;
+                transform: translateY(0)
+            }
+
+            to {
+                font-variation-settings: "ytuc" 0;
+                transform: translateY(-0.15em)
+            }
+        }
+
+        @keyframes ytuc-bottom {
+            from {
+                font-variation-settings: "ytuc" 0;
+                transform: translateY(0)
+            }
+
+            to {
+                font-variation-settings: "ytuc" 100;
+                transform: translateY(-0.5em)
+            }
+        }
+
+        @keyframes rotate-ellipse {
+            50% {
+                transform: translate(-50%, -75%) translateZ(var(--z)) rotateX(75deg) rotateY(-5deg)
+            }
+        }
+    </style>
 </body>
 
 </html>

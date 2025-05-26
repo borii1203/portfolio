@@ -186,6 +186,7 @@ section {
     left: 0;
 }
 
+.huge-hero,
 .stroke {
     --perspective-x: 0;
     --perspective-y: 0;
@@ -198,22 +199,15 @@ section {
     -webkit-text-stroke: 1px white;
 }
 
-.main_visual h3:first-child {
-    transform: translateX(-30%);
-}
 
-.main_visual h3:last-child {
-    transform: translateX(30%);
-}
-
-.main_visual .main_line {
+.main_line {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-20%, -30%);
 }
 
-.main_visual .main_line svg:last-child {
+.main_line svg:last-child {
     transform: translateY(-100px);
 }
 
@@ -717,6 +711,9 @@ section {
     object-position: center top;
 }
 
+.graphic_design .inner .image_wrap img:nth-child(2) {
+    object-position: center 90%;
+}
 .graphic_design .inner .image_wrap img:nth-child(4) {
     object-position: center center;
 }

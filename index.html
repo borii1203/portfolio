@@ -122,6 +122,33 @@
             })
                 .to('.C_line01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
                 .to('.C_line02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
+                .from('.s_item', { scale: 0, duration: 5, ease: "linear" })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.graphic_design',
+                    start: '10% 50%',
+                    end: '70% 90%',
+                    scrub: 1,
+                    markers: true
+                }
+            })
+
+                .fromTo('.G_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
+                .from('.G_item img', { y: 100, duraition: 4, opacity: 0, stagger: 0.4, ease: "power3.out" })
+
+            $('.s_item').each(function (index) {
+                $(this).hover(
+                    function () {
+                        $('.b_item').eq(index).find('video')[0].play();
+                    },
+                    function () {
+                        const video = $('.b_item').eq(index).find('video')[0];
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                );
+            });
         });//script end
     </script>
 </head>
@@ -202,8 +229,8 @@
             <section class="wh_start">
                 <span class="circle"></span>
                 <div class="text">
-                    Passionate <br>
-                    Lorem, ipsum dolor sit amet consectetur adipisi
+                    I'm Passionate and <br>
+                    have good communication skills
                 </div><!-- .text end -->
             </section><!-- wh_start. end -->
 
@@ -537,8 +564,7 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_right">
-                        <img src="img/스켈터랩스_메인.JPG" alt="">
-
+                        <video src="img/스캘터랩스.mp4" autoplay muted loop></video>
                         <p>responsive-breakpoint를 이용하여 반응형에 따른 슬라이드 개수 값을 조절하였습니다.</p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
@@ -553,9 +579,9 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_right">
-                        <img src="img/머니트리_메인.JPG" alt="">
+                        <video src="img/머니트리.mp4" autoplay muted loop></video>
 
-                        <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드 들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
+                        <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
 
@@ -563,7 +589,9 @@
 
             <section class="graphic_design">
                 <div class="inner">
-                    <div class="image_wrap">
+                    <h5 class="G_title">Graphic Design</h5>
+
+                    <div class="image_wrap G_item">
                         <img src="img/airplane.jpg" alt="">
                         <img src="img/컬리02.jpg" alt="">
                         <img src="img/티트리세럼.jpg" alt="">
@@ -583,7 +611,7 @@
                     <div class="info_wrap">
                         <div class="left wh_box">
                             <div class="inner">
-                                <span>I'm professional person</span>
+                                <span>All the project is 100% created myself</span>
                             </div><!-- .inner end -->
                         </div><!-- .last_word end -->
 
@@ -621,6 +649,8 @@
                     <img class="star_m" src="img/star.png" alt="">
                     <img class="star_b" src="img/star.png" alt="">
                 </div><!-- .image_wrap end -->
+
+                <span>© 2025.Minji.ALL RIGHTS RESERVED.</span>
             </section><!-- .contact end -->
         </main><!-- .main end -->
     </div><!-- #wrap end -->

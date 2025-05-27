@@ -98,7 +98,6 @@ body {
 
 section {
     height: 100vh;
-    border: 1px solid blue;
 }
 
 h5 {
@@ -107,41 +106,6 @@ h5 {
     margin-top: 50px;
     line-height: 1.2;
     color: #fff;
-}
-
-
-/* #intro */
-.intro {
-    position: absolute;
-    z-index: 9;
-    display: none;
-    font-family: 'Pretendard';
-    font-weight: 500;
-    font-style: normal;
-}
-
-.intro video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-.intro .text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    font-size: 120px;
-}
-
-.intro .ti-cursor {
-    font-size: 120px;
-}
-
-.small-text {
-    font-size: 50px;
 }
 
 /* header */
@@ -153,7 +117,7 @@ h5 {
 .header {
     width: 100%;
     height: 50px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
@@ -164,11 +128,17 @@ h5 {
     width: calc(100% - 20px);
     margin: 0 auto;
     height: 100%;
+    font-size: 18px;
     color: #fff;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 28px;
+    transition: 0.3s;
+}
+
+.header .gnb.black {
+    color: inherit;
 }
 
 .header .gnb li {
@@ -212,16 +182,14 @@ h5 {
 .main_line {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-20%, -30%);
-}
-
-.main_line svg:last-child {
-    transform: translateY(-100px);
+    left: 40%;
+    transform: translate(-20%, -30%) rotate(5deg);
 }
 
 #text_mask {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -421,18 +389,39 @@ h5 {
     margin-bottom: 0;
 }
 
-.renewal .item .image {
+.renewal .item .mockup {
+    position: relative;
+}
+
+.renewal .item .mockup .pc {
     width: 800px;
     height: 650px;
     position: relative;
 }
 
-.renewal .image span {
+.renewal .mockup .pc span {
     width: 650px;
     height: 363px;
     position: absolute;
     top: 36px;
     left: 18px;
+}
+
+.renewal .item .mockup .mobile {
+    width: 160px;
+    height: 340px;
+    position: absolute;
+    right: 75px;
+    bottom: 40px;
+}
+
+.renewal .item .mockup .mobile span {
+    width: 145px;
+    height: 314px;
+    position: absolute;
+    top: 14px;
+    right: 7px;
+    border-radius: 20px;
 }
 
 .renewal .info_text p {
@@ -468,28 +457,43 @@ h5 {
     width: 80px;
 }
 
-.renewal .bamu_hotel .image {
+.renewal .bamu_hotel .mockup .pc {
     background: url('../img/바뮤_목업.png') center center / 100% no-repeat;
 }
 
-.renewal .bamu_hotel .image span {
+.renewal .bamu_hotel .mockup .pc span {
     background: url('../img/바뮤_스크롤.png') 0 0 / 100% no-repeat;
 }
 
-.renewal .oa .image {
+.renewal .oa .mockup .pc {
     background: url('../img/오아_목업.png') center center / 100% no-repeat;
 }
 
-.renewal .oa .image span {
+.renewal .oa .mockup .pc span {
     background: url('../img/오아_스크롤.JPG') center top / 104% no-repeat;
 }
 
-
-.renewal .tabling .image {
+.renewal .tabling .mockup .pc {
     background: url('../img/테이블링_목업.png') center center / 100% no-repeat;
 }
 
-.renewal .image span:hover {
+.renewal .rawrow .mockup .pc {
+    background: url('../img/로우로우_목업PC.png') center center / 100% no-repeat;
+}
+
+.renewal .rawrow .mockup .pc span {
+    background: url('../img/로우로우_스크롤PC.png') center top / 120% no-repeat;
+}
+
+.renewal .rawrow .mockup .mobile {
+    background: url('../img/로우로우_목업M.png') center center / 100% no-repeat;
+}
+
+.renewal .rawrow .mockup .mobile span {
+    background: url('../img/로우로우_스크롤M.png') center top / 100% no-repeat;
+}
+
+.renewal .mockup span:hover {
     animation: site_scroll 15s ease-in-out infinite;
 }
 
@@ -627,14 +631,14 @@ h5 {
 
 .clone .b_item {
     width: 450px;
-    height: 500px;
-    background-color: rgba(255, 255, 255, 0.2);
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     backdrop-filter: blur(4px);
 
     position: absolute;
     top: 50%;
-    left: 5%;
+    left: 4%;
     transform: translateY(-50%) scale(0);
     display: flex;
     flex-direction: column;
@@ -649,7 +653,7 @@ h5 {
 
 .clone .b_item_right {
     left: auto;
-    right: 5%;
+    right: 4%;
 }
 
 .clone .b_item video {
@@ -664,18 +668,18 @@ h5 {
 }
 
 .clone .jeulgeoun .s_item {
-    top: 54%;
-    left: 25%;
+    top: 70%;
+    left: 30%;
 }
 
 .clone .festival .s_item {
-    top: 19%;
-    left: 26%;
+    top: 25%;
+    left: 28%;
 }
 
 .clone .skelterlabs .s_item {
     top: 20%;
-    right: 25%;
+    right: 32%;
 }
 
 .clone .moneytree .s_item {
@@ -789,64 +793,72 @@ h5 {
     animation: twinkle 4s 1.5s infinite;
 }
 
-.contact .info_wrap {
-    display: flex;
-    justify-content: space-between;
-}
-
 .contact .wh_box {
+    width: 700px;
+    height: 380px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     backdrop-filter: blur(4px);
     padding-block: 40px;
     padding-inline: 24px;
-}
-
-.contact .info_wrap {
-    margin-top: 40px;
+    margin: 40px auto 0;
     z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.contact .info_wrap .left {
-    width: 32%;
+.contact .wh_box .inner {
+    height: 100%;
+    padding-inline: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.contact .info_wrap .right {
-    width: 66%;
+.contact .wh_box .sns_wrap {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.contact .info_wrap img {
-    width: 180px;
+.contact .wh_box img {
+    width: 150px;
 }
 
-.contact .right ul {
+.contact .wh_box ul {
     font-family: 'Pretendard';
     font-weight: 500;
 }
 
-.contact .right p {
+.contact .wh_box p {
     font-size: 40px;
     color: #fff;
+    text-align: center;
 }
 
-.contact .right ul {
+.contact .wh_box ul {
     margin-top: 24px;
 }
 
-.contact .right ul li {
+.contact .wh_box ul li {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    column-gap: 8px;
-    font-size: 20px;
-    margin-top: 4px;
+    column-gap: 24px;
+    font-size: 24px;
+    color: #fff;
 }
 
-.contact .right ul .icon {
-    width: 20px;
-    height: 20px;
+.contact .wh_box ul li:last-child {
+    margin-top: 20px;
+}
+
+.contact .wh_box ul .icon {
+    width: 30px;
+    height: 30px;
     display: block;
-    background-color: #111;
+    background-color: #fff;
 
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
@@ -856,24 +868,24 @@ h5 {
     -webkit-mask-position: center;
 }
 
-.contact .right ul .icon_k {
+.contact .wh_box ul .icon_k {
     mask-image: url('../img/call.png');
     -webkit-mask-image: url('../img/call.png');
 }
 
 
-.contact .right ul .icon_m {
+.contact .wh_box ul .icon_m {
     mask-image: url('../img/mail.png');
     -webkit-mask-image: url('../img/mail.png');
 }
 
-.contact .right .flex {
+.contact .wh_box .flex {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.contact .right .flex a {
+.contact .wh_box .flex a {
     text-align: center;
     background-color: #9184da;
     color: #fff;
@@ -884,7 +896,7 @@ h5 {
     transition: transform 0.3s;
 }
 
-.contact .right .flex a:hover {
+.contact .wh_box .flex a:hover {
     transform: scale(1.1);
     border: 2px solid #fff;
     box-shadow: 4px 2px 8px #9184da7e;

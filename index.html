@@ -27,40 +27,8 @@
                 $bottom_sq01 = $("#bottom_sq_01"),
                 $bottom_sq02 = $("#bottom_sq_02"),
                 $bottom_line = $("#bottom_line")
-            $intro_t = $("#intro_t")
-            openingTl = gsap.timeline();//{ paused: true }나중에 넣기
 
-            new TypeIt("#companionMethods", {
-                speed: 200,
-                waitUntilVisible: true,
-            })
-                .type("Pott", { delay: 300 })
-                .move(-1)
-                .delete(1)
-                .type("r")
-                .move(null, { to: "END" })
-                .type("folio")
-                .break({ delay: 500 })
-                .break({ delay: 500 })
-                .type('<span class="small-text">Start Now</span>')
-                .go();
-
-            gsap.to("#companionMethods", {
-                opacity: 0,
-                delay: 7.5
-            })
-
-            gsap.to("#intro", {
-                duration: 0.5,
-                scale: 1.5,
-                opacity: 0,
-                delay: 7.5,
-                onComplete: function () {
-                    //openingTl.play();
-                }
-            });
-
-
+            var openingTl = gsap.timeline();
             openingTl
                 .from($top_sq02, { duration: 0.5, opacity: 0, y: 100 })
                 .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
@@ -95,7 +63,7 @@
                     start: '80% 60%',
                     end: '110% 50%',
                     scrub: 1,
-                    //markers: true
+                    markers: true
                 }
             })
                 .fromTo('.circle02', { 'width': '2500px', 'height': '2500px', 'duration': '5', 'bottom': '30%', 'ease': 'elastic' }, { 'width': '0', 'height': '0', 'bottom': '5%' })
@@ -103,40 +71,31 @@
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.clone',
-                    start: '10% 50%',
-                    end: '70% 90%',
+                    start: 'top 40%',
+                    end: '70% bottom',
                     scrub: 1,
                     //markers: true
                 }
             })
-                .fromTo('.C_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.C_line01',
-                    start: '20% 50%',
-                    end: 'bottom 90%',
-                    scrub: 2,
-                    //markers: true
-                }
-            })
-                .to('.C_line01', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
-                .to('.C_line02', { strokeDashoffset: 0, duration: 3, ease: "power1.in" })
-                .from('.s_item', { scale: 0, duration: 5, ease: "linear" })
+                .fromTo('.C_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' })
+                .to('.C_line01', { strokeDashoffset: 0, duration: 5, ease: "power1.in" }, '+=3')
+                .to('.C_line02', { strokeDashoffset: 0, duration: 5, ease: "power1.in" })
+                .from('.s_item', { scale: 0, duration: 2, ease: "linear" }, '+=3')
 
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.graphic_design',
-                    start: '10% 50%',
-                    end: '70% 90%',
+                    start: 'top 40%',
+                    end: '70% bottom',
                     scrub: 1,
-                    markers: true
+                    //markers: true
                 }
             })
+                .fromTo('.G_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { top: 0, opacity: 1 }, 0)
+                .fromTo('.G_item img', { y: 100, opacity: 0, ease: "power3.out" }, { opacity: 1, y: 0, stagger: 0.2, duraition: 4 })
 
-                .fromTo('.G_title', { 'top': '50%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' }, 0)
-                .from('.G_item img', { y: 100, duraition: 4, opacity: 0, stagger: 0.4, ease: "power3.out" })
 
+            //호버시 비디오 재생
             $('.s_item').each(function (index) {
                 $(this).hover(
                     function () {
@@ -149,81 +108,81 @@
                     }
                 );
             });
+            //스크롤시 네비 색상 변경
+            $(window).on('scroll', function () {
+                let scrollBar = $(window).scrollTop();
+                console.log(scrollBar);
+
+                if (scrollBar >= 1200 && scrollBar <= 6900) {
+                    $('.header .nav .gnb').addClass('black')
+                } else {
+                    $('.header .nav .gnb').removeClass('black')
+                }
+            });//scroll end
         });//script end
     </script>
 </head>
 
 <body>
-    <div class="intro" id="intro">
-        <video autoplay muted>
-            <source src="img/인트로.mp4">
-        </video>
-
-        <div class="text" id="intro_t">
-            <p id="companionMethods"></p>
-        </div><!-- .text end -->
-    </div><!-- .intro end -->
-
     <div id="wrap">
-        <header class="header">
-            <nav class="nav">
-                <ul class="gnb">
-                    <li><a href="#">Info</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Project</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header><!-- .header end -->
-
         <main class="main">
-            <section class="homepage-header" style="--color-accent: #8082f8;">
-                <div class="homepage-header__titles">
+            <section class="main_visual" id="info">
+                <header class="header">
+                    <nav class="nav">
+                        <ul class="gnb">
+                            <li><a href="#info">Info</a></li>
+                            <li><a href="#profile">About</a></li>
+                            <li><a href="#renewal">Project</a></li>
+                            <li><a href="#graphic_design">Graphic design</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </header><!-- .header end -->
 
-                    <h1 class="homepage-header__title homepage-header__title--top huge-hero vf caps start"
-                        aria-hidden="true">
-                        MJ's </h1>
+                <section class="homepage-header" style="--color-accent: #8082f8;">
+                    <div class="homepage-header__titles">
 
-                    <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps"
-                        aria-hidden="true">
-                        Web Design</h1>
+                        <h1 class="homepage-header__title homepage-header__title--top huge-hero vf caps start"
+                            aria-hidden="true">
+                            MJ's </h1>
 
-                    <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps end"
-                        aria-hidden="true">
-                        Publising </h1>
+                        <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps"
+                            aria-hidden="true">
+                            Web Design</h1>
 
-                    <div class="main_line">
-                        <svg width="500" height="339" viewBox="0 0 590 339" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M340.348 29.5017C420.565 55.2988 488.069 94.4129 532.368 136.752C576.722 179.143 597.569 224.504 585.222 262.899C572.874 301.294 529.495 326 468.745 334.591C408.071 343.172 330.421 335.606 250.204 309.809C169.986 284.012 102.482 244.898 58.1834 202.559C13.8293 160.168 -7.0175 114.807 5.32978 76.4117C17.6772 38.0167 61.057 13.3105 121.807 4.7193C182.481 -3.86113 260.13 3.70464 340.348 29.5017Z"
-                                stroke="white" stroke-width="2" />
-                        </svg>
+                        <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps end"
+                            aria-hidden="true">
+                            Publising </h1>
 
-                        <svg width="609" height="367" viewBox="0 0 709 367" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M311.766 30.1096C408.728 3.03545 501.286 -4.20203 572.527 5.94584C608.149 11.02 638.393 20.4339 661.189 33.8472C683.978 47.2571 699.269 64.6283 705.131 85.6225C710.993 106.617 706.914 129.398 694.368 152.674C681.819 175.956 660.826 199.677 632.986 222.471C577.307 268.058 494.389 309.817 397.427 336.891C300.465 363.965 207.908 371.203 136.667 361.055C101.045 355.981 70.8005 346.567 48.0051 333.153C25.2154 319.744 9.92438 302.372 4.06225 281.377C-1.79969 260.383 2.28002 237.603 14.8259 214.327C27.3751 191.044 48.3676 167.324 76.208 144.53C131.887 98.9427 214.804 57.1837 311.766 30.1096Z"
-                                stroke="white" stroke-width="2" />
-                        </svg>
-                    </div><!-- .main_line end -->
-                </div>
-
+                        <div class="main_line">
+                            <svg width="822" height="154" viewBox="0 0 822 154" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M411 1.5C524.431 1.5 627.086 10.0639 701.347 23.8955C738.489 30.8136 768.453 39.0366 789.097 48.127C799.424 52.6745 807.335 57.4031 812.641 62.2324C817.95 67.0648 820.5 71.8527 820.5 76.5508C820.5 81.249 817.95 86.0376 812.641 90.8701C807.335 95.6995 799.424 100.428 789.097 104.976C768.453 114.066 738.489 122.288 701.347 129.206C627.086 143.038 524.431 151.603 411 151.603C297.569 151.603 194.914 143.038 120.653 129.206C83.5108 122.288 53.5465 114.066 32.9033 104.976C22.5764 100.428 14.6651 95.6995 9.35938 90.8701C4.05013 86.0376 1.5 81.249 1.5 76.5508C1.50017 71.8527 4.05031 67.0648 9.35938 62.2324C14.6651 57.4031 22.5764 52.6745 32.9033 48.127C53.5466 39.0366 83.5108 30.8136 120.653 23.8955C194.914 10.0639 297.569 1.5 411 1.5Z"
+                                    stroke="white" stroke-width="3" />
+                                <path
+                                    d="M411.772 1C518.616 1.00002 615.317 9.56538 685.283 23.4023C720.274 30.3225 748.527 38.5515 768.007 47.6602C777.75 52.2157 785.245 56.9669 790.291 61.8428C795.334 66.7174 797.849 71.6341 797.849 76.5508C797.849 81.4676 795.334 86.385 790.291 91.2598C785.245 96.1357 777.75 100.887 768.007 105.442C748.527 114.551 720.274 122.78 685.283 129.7C615.317 143.537 518.616 152.103 411.772 152.103C304.928 152.103 208.226 143.537 138.26 129.7C103.269 122.78 75.0162 114.551 55.5356 105.442C45.7928 100.887 38.2975 96.1356 33.2524 91.2598C28.2087 86.385 25.6938 81.4676 25.6938 76.5508C25.694 71.6342 28.2088 66.7173 33.2524 61.8428C38.2975 56.9669 45.7928 52.2157 55.5356 47.6602C75.0162 38.5515 103.269 30.3225 138.26 23.4023C208.226 9.56534 304.928 1 411.772 1Z"
+                                    stroke="white" stroke-width="2" />
+                            </svg>
+                        </div><!-- .main_line end -->
+                    </div>
 
 
-                <div id="text_mask">
-                    <div id="text_top">
-                        <div id="top_sq_01"></div>
-                        <div id="top_line"></div>
-                        <div id="top_sq_02"></div>
-                    </div><!-- .top_line end -->
 
-                    <div id="text_bottom">
-                        <div id="bottom_sq_01"></div>
-                        <div id="bottom_line"></div>
-                        <div id="bottom_sq_02"></div>
-                    </div><!-- .text_bottom end -->
-                </div><!-- .text_mask end -->
+                    <div id="text_mask">
+                        <div id="text_top">
+                            <div id="top_sq_01"></div>
+                            <div id="top_line"></div>
+                            <div id="top_sq_02"></div>
+                        </div><!-- .top_line end -->
+
+                        <div id="text_bottom">
+                            <div id="bottom_sq_01"></div>
+                            <div id="bottom_line"></div>
+                            <div id="bottom_sq_02"></div>
+                        </div><!-- .text_bottom end -->
+                    </div><!-- .text_mask end -->
+                </section><!-- .homepage-header end -->
             </section><!-- .main_visual end -->
 
             <section class="wh_start">
@@ -234,7 +193,7 @@
                 </div><!-- .text end -->
             </section><!-- wh_start. end -->
 
-            <section class="profile">
+            <section class="profile" id="profile">
                 <div class="inner">
                     <div class="main_profile">
                         <div class="image">
@@ -338,12 +297,12 @@
                 </div><!-- .text_mask end -->
             </section><!-- .profile end -->
 
-            <section class="renewal">
+            <section class="renewal" id="renewal">
                 <div class="inner">
                     <div class="item bamu_hotel">
-                        <div class="image">
-                            <span></span>
-                        </div><!-- .image end -->
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                        </div><!-- .mockup end -->
 
                         <div class="info_text">
                             <p class="name">B'AMU hotel&spa</p>
@@ -379,9 +338,9 @@
                     </div><!-- .item end -->
 
                     <div class="item oa">
-                        <div class="image">
-                            <span></span>
-                        </div><!-- .image end -->
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                        </div><!-- .mockup end -->
 
                         <div class="info_text">
                             <p class="name">oa</p>
@@ -417,9 +376,10 @@
                     </div><!-- .item end -->
 
                     <div class="item tabling">
-                        <div class="image">
-                            <span></span>
-                        </div><!-- .image end -->
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .mockup end -->
 
                         <div class="info_text">
                             <p class="name">테이블링</p>
@@ -455,19 +415,21 @@
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
 
-                    <div class="item bamu_hotel">
-                        <div class="image">
-                            <span></span>
+                    <div class="item rawrow">
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+
+                            <div class="mobile"><span></span></div>
                         </div><!-- .image end -->
 
                         <div class="info_text">
-                            <p class="name">B'AMU hotel&spa</p>
-                            <span>호텔 '바뮤'홈페이지 리뉴얼입니다</span>
+                            <p class="name">RAWROW</p>
+                            <span>캐리어 판매하는 '로우로우'홈페이지 리뉴얼입니다</span>
 
                             <ul>
                                 <li>
                                     <span class="list_type">Type</span>
-                                    <span class="list_name">Website</span>
+                                    <span class="list_name">Responsive Web</span>
                                 </li>
 
                                 <li>
@@ -477,7 +439,7 @@
 
                                 <li>
                                     <span class="list_type">Tool</span>
-                                    <span class="list_name">Main page</span>
+                                    <span class="list_name">Html, Css, Jquery, Vscode, Figma</span>
                                 </li>
 
                                 <li>
@@ -488,7 +450,7 @@
 
                             <div class="site_wrap">
                                 <a href="#">PROCESS</a>
-                                <a class="line_color" href="#">WEBSITE</a>
+                                <a class="line_color" href="">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -499,7 +461,7 @@
                 <span class="circle02"></span>
             </section><!-- .wh_end end -->
 
-            <section class="clone">
+            <section class="clone" id="clone">
                 <div class="C_title">
                     <h5>Project</h5>
 
@@ -532,9 +494,12 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_left">
-                        <img src="img/음악제_메인.JPG" alt="">
+                        <video src="img/스켈터랩스_메인.JPG"></video>
 
-                        <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다.</p>
+                        <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다. <br>
+                            푸터의 역할을 제대로 이해하지못하고 flex만을 이용하다보니 반응형을 할때에 위치를 잡는 어려움이 있었습니다. 그래서 template를 이용하면 아이템들의 위치가
+                            어떻게 변하는지하나하나 확인을 하며 스타일을 다시 적용하여 속성을 제대로 이해하게 되었습니다.
+                        </p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
 
@@ -548,7 +513,7 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_left">
-                        <img src="img/즐거운_메인.JPG" alt="">
+                        <video src="img/스켈터랩스_메인.JPG"></video>
 
                         <p>Java Script를 이용하여 헤더의 색상 변화와 스크롤의 값을 구하여 Top버튼의 유무를 조절하였습니다.</p>
                     </div><!-- .b_item end -->
@@ -587,7 +552,7 @@
 
             </section><!-- .clone end -->
 
-            <section class="graphic_design">
+            <section class="graphic_design" id="graphic_design">
                 <div class="inner">
                     <h5 class="G_title">Graphic Design</h5>
 
@@ -604,21 +569,14 @@
                 </div><!-- .inner end -->
             </section><!-- .graphic_design end -->
 
-            <section class="contact">
+            <section class="contact" id="contact">
                 <div class="text_wrap">
                     <h5 class="stroke">Contact Me?</h5>
 
-                    <div class="info_wrap">
-                        <div class="left wh_box">
-                            <div class="inner">
-                                <span>All the project is 100% created myself</span>
-                            </div><!-- .inner end -->
-                        </div><!-- .last_word end -->
-
-                        <div class="right wh_box">
-                            <div class="inner">
-                                <p>Thank you for watching</p>
-
+                    <div class="wh_box">
+                        <p>Thank you for watching</p>
+                        <div class="inner">
+                            <div class="sns_wrap">
                                 <ul>
                                     <li>
                                         <span class="icon_k icon"></span>
@@ -631,16 +589,19 @@
                                     </li>
                                 </ul>
 
-                                <div class="flex">
-                                    <a href="https://github.com/borii1203">GitHub</a>
-                                    <a href="#">Download portfolio</a>
+                                <img src="img/kakaotalk.jpg" alt="">
+                            </div><!-- .sns_wrap end -->
 
-                                    <img src="img/kakaotalk.jpg" alt="">
-                                </div><!-- .flex end -->
-                            </div><!-- .inner end -->
-                        </div><!-- .sns_info end -->
-                    </div><!-- .info_wrap end -->
+                            <div class="flex">
+                                <a href="https://github.com/borii1203">GitHub</a>
+                                <a href="#">Download portfolio</a>
+
+                            </div><!-- .flex end -->
+                        </div><!-- .inner end -->
+                    </div><!-- .wh_box end -->
                 </div><!-- .text_wrap end -->
+
+
 
                 <div class="image_wrap">
                     <img class="planet planet_b" src="img/planet_01.png" alt="">
@@ -769,7 +730,7 @@
             transform: translateZ(-0.6944444444vw);
             margin-top: .18em;
             padding-bottom: .2em;
-            font-variation-settings: "ytuc" 0
+            font-variation-settings: "ytuc" 0;
         }
 
         @media(prefers-reduced-motion: no-preference) {

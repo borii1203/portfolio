@@ -63,7 +63,7 @@
                     start: '80% 60%',
                     end: '110% 50%',
                     scrub: 1,
-                    markers: true
+                    //markers: true
                 }
             })
                 .fromTo('.circle02', { 'width': '2500px', 'height': '2500px', 'duration': '5', 'bottom': '30%', 'ease': 'elastic' }, { 'width': '0', 'height': '0', 'bottom': '5%' })
@@ -78,9 +78,20 @@
                 }
             })
                 .fromTo('.C_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' })
-                .to('.C_line01', { strokeDashoffset: 0, duration: 5, ease: "power1.in" }, '+=3')
-                .to('.C_line02', { strokeDashoffset: 0, duration: 5, ease: "power1.in" })
-                .from('.s_item', { scale: 0, duration: 2, ease: "linear" }, '+=3')
+
+            gsap.timeline({
+                scrolTrigger: {
+                    trigger: '.C_line',
+                    start: 'top 50%',
+                    end: '80% bottom',
+                    scrub: 1,
+                    markers: true
+                }
+            })
+                .to('.C_line01', { strokeDashoffset: 0, duration: 2, ease: "power1.in" })
+                .to('.C_line02', { strokeDashoffset: 0, duration: 1, ease: "power1.in" })
+                .from('.s_item', { scale: 0, duration: 1, ease: "linear" })
+
 
             gsap.timeline({
                 scrollTrigger: {
@@ -92,7 +103,7 @@
                 }
             })
                 .fromTo('.G_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { top: 0, opacity: 1 }, 0)
-                .fromTo('.G_item img', { y: 100, opacity: 0, ease: "power3.out" }, { opacity: 1, y: 0, stagger: 0.2, duraition: 4 })
+                .fromTo('.G_item img', { y: 100, opacity: 0, ease: "power3.out" }, { opacity: 1, y: 0, stagger: 0.7, duraition: 3 })
 
 
             //호버시 비디오 재생
@@ -108,6 +119,7 @@
                     }
                 );
             });
+
             //스크롤시 네비 색상 변경
             $(window).on('scroll', function () {
                 let scrollBar = $(window).scrollTop();
@@ -138,36 +150,30 @@
                         </ul>
                     </nav>
                 </header><!-- .header end -->
-
                 <section class="homepage-header" style="--color-accent: #8082f8;">
-                    <div class="homepage-header__titles">
+                    <p class="sub_title">Web Design & Publishing</p>
 
+                    <div class="homepage-header__titles">
                         <h1 class="homepage-header__title homepage-header__title--top huge-hero vf caps start"
                             aria-hidden="true">
                             MJ's </h1>
 
-                        <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps"
-                            aria-hidden="true">
-                            Web Design</h1>
-
                         <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps end"
                             aria-hidden="true">
-                            Publising </h1>
+                            Portfolio</h1>
 
                         <div class="main_line">
-                            <svg width="822" height="154" viewBox="0 0 822 154" fill="none"
+                            <svg width="748" height="621" viewBox="0 0 748 621" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M411 1.5C524.431 1.5 627.086 10.0639 701.347 23.8955C738.489 30.8136 768.453 39.0366 789.097 48.127C799.424 52.6745 807.335 57.4031 812.641 62.2324C817.95 67.0648 820.5 71.8527 820.5 76.5508C820.5 81.249 817.95 86.0376 812.641 90.8701C807.335 95.6995 799.424 100.428 789.097 104.976C768.453 114.066 738.489 122.288 701.347 129.206C627.086 143.038 524.431 151.603 411 151.603C297.569 151.603 194.914 143.038 120.653 129.206C83.5108 122.288 53.5465 114.066 32.9033 104.976C22.5764 100.428 14.6651 95.6995 9.35938 90.8701C4.05013 86.0376 1.5 81.249 1.5 76.5508C1.50017 71.8527 4.05031 67.0648 9.35938 62.2324C14.6651 57.4031 22.5764 52.6745 32.9033 48.127C53.5466 39.0366 83.5108 30.8136 120.653 23.8955C194.914 10.0639 297.569 1.5 411 1.5Z"
+                                    d="M419.478 250.848C509.712 319.583 586.184 388.6 636.877 444.602C662.232 472.612 681.085 497.31 691.998 517.05C697.458 526.926 700.886 535.481 702.18 542.538C703.475 549.599 702.603 554.953 699.756 558.691C696.909 562.428 691.979 564.692 684.827 565.319C677.68 565.946 668.521 564.913 657.551 562.273C635.621 556.996 606.802 545.379 573.063 528.376C505.607 494.38 418.756 438.989 328.522 370.254C238.288 301.52 161.817 232.502 111.123 176.5C85.7687 148.49 66.9144 123.792 56.0012 104.052C50.5418 94.1768 47.1137 85.6214 45.8194 78.5646C44.5242 71.5031 45.3973 66.1486 48.2442 62.4112C51.0912 58.674 56.0211 56.4105 63.1726 55.7834C70.3197 55.1567 79.4784 56.1891 90.4491 58.8292C112.379 64.1067 141.198 75.7224 174.937 92.7259C242.393 126.722 329.243 182.114 419.478 250.848Z"
                                     stroke="white" stroke-width="3" />
                                 <path
-                                    d="M411.772 1C518.616 1.00002 615.317 9.56538 685.283 23.4023C720.274 30.3225 748.527 38.5515 768.007 47.6602C777.75 52.2157 785.245 56.9669 790.291 61.8428C795.334 66.7174 797.849 71.6341 797.849 76.5508C797.849 81.4676 795.334 86.385 790.291 91.2598C785.245 96.1357 777.75 100.887 768.007 105.442C748.527 114.551 720.274 122.78 685.283 129.7C615.317 143.537 518.616 152.103 411.772 152.103C304.928 152.103 208.226 143.537 138.26 129.7C103.269 122.78 75.0162 114.551 55.5356 105.442C45.7928 100.887 38.2975 96.1356 33.2524 91.2598C28.2087 86.385 25.6938 81.4676 25.6938 76.5508C25.694 71.6342 28.2088 66.7173 33.2524 61.8428C38.2975 56.9669 45.7928 52.2157 55.5356 47.6602C75.0162 38.5515 103.269 30.3225 138.26 23.4023C208.226 9.56534 304.928 1 411.772 1Z"
+                                    d="M420.395 250.918C505.389 315.661 577.124 381.072 624.397 434.475C648.039 461.183 665.528 484.85 675.505 503.9C680.495 513.428 683.578 521.749 684.637 528.685C685.696 535.619 684.717 541.054 681.738 544.965C678.758 548.877 673.778 551.264 666.812 552.086C659.844 552.908 651.002 552.145 640.491 549.866C619.475 545.307 592.014 534.733 559.985 519.035C495.943 487.646 413.827 435.863 328.833 371.12C243.839 306.377 172.104 240.966 124.83 187.562C101.188 160.854 83.6998 137.188 73.7225 118.138C68.7325 108.61 65.6491 100.289 64.5903 93.3528C63.5319 86.4187 64.5111 80.983 67.4905 77.0717C70.4699 73.1606 75.4498 70.7732 82.4158 69.9517C89.3837 69.1301 98.2252 69.8923 108.736 72.1722C129.752 76.7307 157.214 87.3045 189.242 103.003C253.285 134.392 335.401 186.176 420.395 250.918Z"
                                     stroke="white" stroke-width="2" />
                             </svg>
                         </div><!-- .main_line end -->
                     </div>
-
-
 
                     <div id="text_mask">
                         <div id="text_top">
@@ -188,7 +194,7 @@
             <section class="wh_start">
                 <span class="circle"></span>
                 <div class="text">
-                    I'm Passionate and <br>
+                    I'm Passtionate and<br>
                     have good communication skills
                 </div><!-- .text end -->
             </section><!-- wh_start. end -->
@@ -198,13 +204,6 @@
                     <div class="main_profile">
                         <div class="image">
                             <img src="img/이력서.jpg" alt="">
-                            <svg width="386" height="264" viewBox="0 0 386 264" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M236.255 56.7338C287.928 86.3132 329.807 121.601 355.75 154.72C368.723 171.281 377.692 187.276 381.923 201.722C386.153 216.166 385.634 229.011 379.716 239.35C373.798 249.688 362.985 256.64 348.387 260.306C333.787 263.973 315.454 264.338 294.604 261.538C252.908 255.938 201.271 237.695 149.598 208.116C97.9254 178.536 56.0464 143.248 30.103 110.128C17.1305 93.5677 8.16128 77.5737 3.93024 63.1274C-0.300125 48.6831 0.218932 35.8379 6.13676 25.4998C12.0547 15.1617 22.8683 8.20953 37.466 4.54302C52.0658 0.876009 70.3996 0.510329 91.2493 3.3105C132.946 8.91047 184.581 27.1544 236.255 56.7338Z"
-                                    stroke="#111111" stroke-width="1.18481" />
-                            </svg>
-
                         </div>
 
                         <ul class="basic_info">
@@ -278,7 +277,7 @@
                             </ul>
                         </div><!-- .skil end -->
 
-                        <a href="#">이력서 확인하기</a>
+                        <a href="">이력서 확인하기</a>
                     </div><!-- .sub_profile end -->
                 </div><!-- .inner end -->
 
@@ -299,6 +298,46 @@
 
             <section class="renewal" id="renewal">
                 <div class="inner">
+                    <div class="item rawrow">
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .image end -->
+
+                        <div class="info_text">
+                            <p class="name">RAWROW</p>
+                            <span> '월드와이드'홈페이지 리뉴얼입니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Responsive Web</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Jquery, Vscode, Figma</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="#">PROCESS</a>
+                                <a class="line_color" href="">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
                     <div class="item bamu_hotel">
                         <div class="mockup">
                             <div class="pc"><span></span></div>
@@ -331,7 +370,7 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="#">PROCESS</a>
+                                <a href="img/바뮤 호텔 프로세스.pdf">PROCESS</a>
                                 <a class="line_color" href="https://borii1203.github.io/site-b-amu-hotel/">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
@@ -408,49 +447,9 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="#">PROCESS</a>
+                                <a href="img/테이블링 프로세스.pdf">PROCESS</a>
                                 <a class="line_color"
                                     href="https://www.figma.com/design/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=QExgGWP4MRte4Jdc-0">FIGMA</a>
-                            </div><!-- .site_wrap end -->
-                        </div><!-- .info_text end -->
-                    </div><!-- .item end -->
-
-                    <div class="item rawrow">
-                        <div class="mockup">
-                            <div class="pc"><span></span></div>
-
-                            <div class="mobile"><span></span></div>
-                        </div><!-- .image end -->
-
-                        <div class="info_text">
-                            <p class="name">RAWROW</p>
-                            <span>캐리어 판매하는 '로우로우'홈페이지 리뉴얼입니다</span>
-
-                            <ul>
-                                <li>
-                                    <span class="list_type">Type</span>
-                                    <span class="list_name">Responsive Web</span>
-                                </li>
-
-                                <li>
-                                    <span class="list_type">Page</span>
-                                    <span class="list_name">Main page</span>
-                                </li>
-
-                                <li>
-                                    <span class="list_type">Tool</span>
-                                    <span class="list_name">Html, Css, Jquery, Vscode, Figma</span>
-                                </li>
-
-                                <li>
-                                    <span class="list_type">참여도</span>
-                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
-                                </li>
-                            </ul>
-
-                            <div class="site_wrap">
-                                <a href="#">PROCESS</a>
-                                <a class="line_color" href="">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -469,19 +468,28 @@
                 </div><!-- .C_title end -->
 
                 <div class="C_line">
-                    <svg class="C_line01" width="700" height="595" viewBox="0 0 870 595" fill="none"
+                    <svg class="C_line01" width="1078" height="624" viewBox="0 0 1078 624" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
+                            d="M587.438 456.723C722.456 411.16 839.121 353.584 918.595 297.365C958.339 269.25 988.71 241.525 1007.44 215.871C1026.19 190.178 1033.06 166.864 1026.48 147.381C1019.91 127.897 1000.32 113.512 969.831 104.436C939.39 95.374 898.43 91.7196 849.777 93.4351C752.49 96.8654 624.793 121.751 489.775 167.314C354.758 212.876 238.093 270.452 158.619 326.671C118.875 354.786 88.5042 382.511 69.7784 408.165C51.0235 433.858 44.1555 457.172 50.7305 476.655C57.3054 496.139 76.8952 510.524 107.383 519.6C137.824 528.662 178.784 532.316 227.437 530.601C324.724 527.171 452.421 502.285 587.438 456.723Z"
+                            stroke="white" stroke-width="3" />
+                        <path
+                            d="M588.517 456.887C715.699 413.969 825.285 358.778 899.65 304.269C936.837 277.011 965.169 249.957 982.5 224.735C999.843 199.495 1006.06 176.262 999.396 156.522C992.735 136.782 973.714 122.065 944.624 112.494C915.554 102.929 876.622 98.5744 830.523 99.4221C738.336 101.117 617.716 123.612 490.535 166.53C363.353 209.449 253.766 264.639 179.401 319.148C142.214 346.406 113.881 373.459 96.5504 398.682C79.2074 423.922 72.9934 447.155 79.6549 466.895C86.3164 486.635 105.337 501.352 134.427 510.923C163.497 520.487 202.428 524.842 248.528 523.995C340.715 522.299 461.336 499.805 588.517 456.887Z"
                             stroke="white" stroke-width="2" />
                     </svg>
 
-                    <svg class="C_line02" width="700" height="595" viewBox="0 0 870 595" fill="none"
+
+                    <svg class="C_line02" width="1019" height="764" viewBox="0 0 1019 764" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M523.776 150.929C641.157 222.153 737.38 303.109 798.067 376.393C828.414 413.038 849.838 447.721 860.602 478.272C871.368 508.831 871.421 535.103 859.284 555.106C847.148 575.108 823.82 587.194 791.743 591.757C759.675 596.319 719.018 593.333 672.499 583.339C579.472 563.354 463.229 515.394 345.847 444.171C228.465 372.947 132.243 291.99 71.5549 218.707C41.208 182.061 19.7839 147.378 9.02051 116.828C-1.74598 86.2689 -1.79856 59.9966 10.3382 39.9943C22.4749 19.992 45.8021 7.90571 77.8795 3.34273C109.948 -1.2189 150.605 1.76667 197.123 11.7604C290.15 31.7458 406.394 79.7061 523.776 150.929Z"
+                            d="M577.522 271.382C699.044 345.831 801.346 425.731 868.509 494.698C902.099 529.19 926.839 560.886 940.819 587.747C954.849 614.704 957.805 636.314 948.776 651.052C939.747 665.79 919.152 672.972 888.763 672.717C858.483 672.463 819.008 664.819 773.023 650.56C681.074 622.05 563.426 567.201 441.903 492.752C320.381 418.303 218.08 338.404 150.917 269.436C117.327 234.944 92.586 203.248 78.6063 176.388C64.5764 149.43 61.6211 127.821 70.6502 113.083C79.6793 98.3443 100.273 91.162 130.662 91.417C160.942 91.6711 200.417 99.3161 246.403 113.575C338.352 142.085 456 196.934 577.522 271.382Z"
+                            stroke="white" stroke-width="3" />
+                        <path
+                            d="M578.61 271.462C693.077 341.589 789.002 417.584 851.561 483.742C882.845 516.827 905.745 547.409 918.461 573.531C931.202 599.703 933.59 621.114 924.398 636.118C915.207 651.121 895.047 658.718 865.943 659.256C836.895 659.792 799.249 653.281 755.565 640.437C668.21 614.752 556.936 563.811 442.469 493.685C328.003 423.559 232.077 347.563 169.518 281.405C138.234 248.32 115.334 217.738 102.618 191.616C89.8773 165.444 87.4892 144.033 96.6806 129.029C105.872 114.026 126.032 106.428 155.136 105.891C184.184 105.355 221.83 111.866 265.515 124.71C352.869 150.395 464.144 201.336 578.61 271.462Z"
                             stroke="white" stroke-width="2" />
                     </svg>
+
+
                 </div><!-- .C_line end -->
 
                 <div class="item festival">
@@ -494,11 +502,9 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_left">
-                        <video src="img/스켈터랩스_메인.JPG"></video>
+                        <video src="img/대관령음악제.mp4" muted loop></video>
 
                         <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다. <br>
-                            푸터의 역할을 제대로 이해하지못하고 flex만을 이용하다보니 반응형을 할때에 위치를 잡는 어려움이 있었습니다. 그래서 template를 이용하면 아이템들의 위치가
-                            어떻게 변하는지하나하나 확인을 하며 스타일을 다시 적용하여 속성을 제대로 이해하게 되었습니다.
                         </p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
@@ -513,7 +519,7 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_left">
-                        <video src="img/스켈터랩스_메인.JPG"></video>
+                        <video src="img/즐거운.mp4" muted loop></video>
 
                         <p>Java Script를 이용하여 헤더의 색상 변화와 스크롤의 값을 구하여 Top버튼의 유무를 조절하였습니다.</p>
                     </div><!-- .b_item end -->
@@ -529,7 +535,7 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_right">
-                        <video src="img/스캘터랩스.mp4" autoplay muted loop></video>
+                        <video src="img/스캘터랩스.mp4" muted loop></video>
                         <p>responsive-breakpoint를 이용하여 반응형에 따른 슬라이드 개수 값을 조절하였습니다.</p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
@@ -544,7 +550,7 @@
                     </div><!-- .s_item end -->
 
                     <div class="b_item b_item_right">
-                        <video src="img/머니트리.mp4" autoplay muted loop></video>
+                        <video src="img/머니트리.mp4" muted loop></video>
 
                         <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
                     </div><!-- .b_item end -->
@@ -615,287 +621,6 @@
             </section><!-- .contact end -->
         </main><!-- .main end -->
     </div><!-- #wrap end -->
-
-    <style id='acf-homepage-header-style-inline-css' type='text/css'>
-        :root {
-            --ease-in-sine: cubic-bezier(0.12, 0, 0.39, 0);
-            --ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
-            --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
-            --ease-in-quad: cubic-bezier(0.11, 0, 0.5, 0);
-            --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
-            --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
-            --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
-            --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-            --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
-            --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
-            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-            --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
-            --ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
-            --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
-            --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
-            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
-            --ease-in-circ: cubic-bezier(0.55, 0, 1, 0.45);
-            --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
-            --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
-            --ease-in-back: cubic-bezier(0.36, 0, 0.66, -0.56);
-            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
-            --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-            --ease-in-elastic: cubic-bezier(0.36, 0.66, 0.04, 1.44);
-            --ease-out-elastic: cubic-bezier(0.6, -0.24, 0.4, 0.8);
-            --ease-in-out-elastic: cubic-bezier(0.58, 0.82, 0.42, 1.18);
-            --ease-in-bounce: cubic-bezier(0.71, 0.03, 0.83, 0.67);
-            --ease-out-bounce: cubic-bezier(0.17, 0.67, 0.29, 0.99);
-            --ease-in-out-bounce: cubic-bezier(0.85, 0.01, 0.98, 0.99);
-            --default-ease: var(--ease-in-out-quart)
-        }
-
-        .sr-only:not(:focus):not(:active) {
-            position: absolute;
-            white-space: nowrap;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-            clip: rect(0 0 0 0);
-            clip-path: inset(50%)
-        }
-
-        @keyframes fadeIn {
-            100% {
-                opacity: 1
-            }
-        }
-
-        :root {
-            --background: rgba(255, 245, 238, 0);
-            --padding: max(1rem, 1.6666666667vw)
-        }
-
-        @keyframes breathe {
-            to {
-                transform: translateY(-3.5em)
-            }
-        }
-
-        .homepage-header {
-            --perspective-x: 0;
-            --perspective-y: 0;
-            overflow-x: clip;
-            padding: clamp(4rem, 5.5555555556vw, 5vh) var(--padding) 0;
-            text-align: center;
-            color: var(--color-accent);
-            perspective: 800px;
-            view-timeline: --homepage-header y;
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center
-        }
-
-        .homepage-header__titles {
-            position: relative;
-            z-index: 1;
-            -webkit-text-stroke: 1px #fff;
-            font-size: 150px;
-            color: var(--background);
-            transform-style: preserve-3d;
-        }
-
-        .homepage-header__title {
-            animation-timeline: --homepage-header;
-            animation-range: entry 100lvh exit
-        }
-
-        .homepage-header__title--top {
-            padding-top: .1em;
-            position: relative;
-            z-index: 2;
-        }
-
-        @media(prefers-reduced-motion: no-preference) {
-            .homepage-header__title--top {
-                transform: translateZ(4.8611111111vw)
-            }
-
-            @supports(animation-timeline: view(y)) {
-                .homepage-header__title--top {
-                    animation-name: ytuc-top
-                }
-            }
-        }
-
-        .homepage-header__title--bottom {
-            transform: translateZ(-0.6944444444vw);
-            margin-top: .18em;
-            padding-bottom: .2em;
-            font-variation-settings: "ytuc" 0;
-        }
-
-        @media(prefers-reduced-motion: no-preference) {
-            @supports(animation-timeline: view(y)) {
-                .homepage-header__title--bottom {
-                    animation-name: ytuc-bottom
-                }
-            }
-        }
-
-        .homepage-header .moons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            pointer-events: none
-        }
-
-        .homepage-header .moons .item {
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards
-        }
-
-        .homepage-header .moons img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: max(3rem, 4.1666666667vw);
-            height: max(3rem, 4.1666666667vw);
-            object-fit: contain;
-            transform-origin: 50% 50%;
-            transform-box: fill-box
-        }
-
-        .homepage-header .motionpath {
-            position: absolute;
-            top: -15%;
-            left: -25%;
-            width: 200%;
-            height: auto;
-            transform: rotateX(35deg) rotateY(-10deg);
-            pointer-events: none
-        }
-
-        @media only screen and (min-width: 0px)and (max-width: 1024px) {
-            .homepage-header .motionpath {
-                width: 160%;
-                left: -30%
-            }
-        }
-
-        .homepage-header__ellipse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            --z: -10.4166666667vw;
-            transform: translate(-50%, -75%) translateZ(var(--z)) rotateX(75deg) rotateY(0deg);
-            width: 65.8333333333vw;
-            height: auto;
-            z-index: 1;
-            stroke: var(--color-accent);
-            min-width: 350px;
-            overflow: visible;
-            pointer-events: none
-        }
-
-        @media only screen and (min-width: 0px)and (max-width: 750px) {
-            .homepage-header__ellipse {
-                display: none
-            }
-        }
-
-        @media(prefers-reduced-motion: no-preference) {
-            .homepage-header__ellipse {
-                animation: rotate-ellipse 30s var(--ease-out-quad) forwards infinite
-            }
-        }
-
-        @media(prefers-reduced-motion: no-preference) {
-            .homepage-header__ellipse #dash-offset {
-                stroke-dashoffset: 9088;
-                stroke-dasharray: 9088, 18176;
-                animation: fill-ellipse 4s .2s var(--ease-out-quad) forwards
-            }
-        }
-
-        .homepage-header__ellipse .transform-1,
-        .homepage-header__ellipse .transform-2,
-        .homepage-header__ellipse .transform-3 {
-            visibility: hidden
-        }
-
-        .homepage-header__ticker {
-            position: relative;
-            width: 100%;
-            height: 1em;
-            height: 1lh;
-            overflow: hidden
-        }
-
-        @media only screen and (min-width: 0px)and (max-width: 1024px) {
-            .homepage-header__ticker {
-                font-size: 1rem
-            }
-        }
-
-        .homepage-header__ticker:has(.homepage-header__tick:focus-within) .homepage-header__tick {
-            transform: translateY(-1.1em) !important
-        }
-
-        .homepage-header__tick {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transform: translateY(-1.1em);
-            background: var(--background)
-        }
-
-        .homepage-header__tick:has(:focus-within) {
-            transform: translateY(0) !important
-        }
-
-        @keyframes fill-ellipse {
-            0% {
-                stroke-dashoffset: 9088
-            }
-
-            100% {
-                stroke-dashoffset: 0
-            }
-        }
-
-        @keyframes ytuc-top {
-            from {
-                font-variation-settings: "ytuc" 100;
-                transform: translateY(0)
-            }
-
-            to {
-                font-variation-settings: "ytuc" 0;
-                transform: translateY(-0.15em)
-            }
-        }
-
-        @keyframes ytuc-bottom {
-            from {
-                font-variation-settings: "ytuc" 0;
-                transform: translateY(0)
-            }
-
-            to {
-                font-variation-settings: "ytuc" 100;
-                transform: translateY(-0.5em)
-            }
-        }
-
-        @keyframes rotate-ellipse {
-            50% {
-                transform: translate(-50%, -75%) translateZ(var(--z)) rotateX(75deg) rotateY(-5deg)
-            }
-        }
-    </style>
 </body>
 
 </html>

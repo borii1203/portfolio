@@ -26,14 +26,15 @@
                 $top_line = $("#top_line"),
                 $bottom_sq01 = $("#bottom_sq_01"),
                 $bottom_sq02 = $("#bottom_sq_02"),
-                $bottom_line = $("#bottom_line")
+                $bottom_line = $("#bottom_line"),
+                $main_line = $(".main_line svg")
 
-            var openingTl = gsap.timeline();
-            openingTl
+            gsap.timeline()
                 .from($top_sq02, { duration: 0.5, opacity: 0, y: 100 })
                 .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
                 .from($top_line, { duration: 1, height: 0, delay: 0.5 })
                 .from($bottom_line, { duration: 1, height: 0 }, "<")
+                .from($main_line, { duration: 2, strokeDashoffset: 2000 })
 
             gsap.timeline({
                 scrollTrigger: {
@@ -80,16 +81,16 @@
                 .fromTo('.C_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' })
 
             gsap.timeline({
-                scrolTrigger: {
+                scrollTrigger: {
                     trigger: '.C_line',
                     start: 'top 50%',
-                    end: '80% bottom',
+                    end: '+=800 bottom',
                     scrub: 1,
                     markers: true
                 }
             })
-                .to('.C_line01', { strokeDashoffset: 0, duration: 2, ease: "power1.in" })
-                .to('.C_line02', { strokeDashoffset: 0, duration: 1, ease: "power1.in" })
+                .fromTo('.C_line01', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 5, ease: "power1.in" })
+                .fromTo('.C_line02', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 5, ease: "power1.in" }, ">")
                 .from('.s_item', { scale: 0, duration: 1, ease: "linear" })
 
 

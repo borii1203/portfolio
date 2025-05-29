@@ -692,8 +692,103 @@ h5 {
     right: 29%;
 }
 
+
+
 /* graphic_design */
-.graphic_design
+.graphic_design {
+    position: relative;
+}
+
+.graphic_design .title_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.graphic_design .title_wrap p {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.graphic_design .image_wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.graphic_design .image_wrap .image_position {
+    position: absolute;
+}
+
+.graphic_design .image_wrap .image_position:nth-child(1) {
+    top: 10%;
+    left: 70%;
+}
+
+.graphic_design .image_wrap .image_position:nth-child(2) {
+    top: 12%;
+    left: 40%;
+}
+
+.graphic_design .image_wrap .image_position:nth-child(3) {
+    bottom: 2%;
+    left: 6%;
+}
+
+.graphic_design .image_wrap .image_position:nth-child(4) {
+    top: 50%;
+    left: 80%;
+}
+
+.graphic_design .image_wrap .image_position:nth-child(5) {
+    top: 7%;
+    left: 10%;
+}
+
+.graphic_design .image_wrap .image_box {
+    width: 300px;
+    position: relative;
+    transform-origin: center;
+    transform-style: preserve-3d;
+}
+
+.graphic_design .image_wrap .image_box:nth-child(odd) {
+    height: 300px;
+}
+
+.graphic_design .image_wrap .image_box:nth-child(even) {
+    height: 450px;
+}
+
+.graphic_design .image_wrap .image_box .image_f {
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.graphic_design .image_wrap .image_box .image_b {
+    transform: rotateY(180deg);
+}
+
+.graphic_design .image_wrap .image_box .image_f,
+.graphic_design .image_wrap .image_box .image_b {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.graphic_design .image_wrap .image_box .image_f img,
+.graphic_design .image_wrap .image_box .image_b img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
 
 
 /* contact */

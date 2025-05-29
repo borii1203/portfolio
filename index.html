@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MJ portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
 
@@ -14,11 +15,13 @@
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <script type="text/javascript" src="https://cydstumpel.nl/wp-content/themes/portfolio-2025/assets/main.js?ver=3034"
         id="theme-appjs-js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
     <!-- Setup and start animation! -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
+
 
         $(function () {
             var $top_sq01 = $("#top_sq_01"),
@@ -34,7 +37,7 @@
                 .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
                 .from($top_line, { duration: 1, height: 0, delay: 0.5 })
                 .from($bottom_line, { duration: 1, height: 0 }, "<")
-                .from($main_line, { duration: 2, strokeDashoffset: 2000 })
+                .from($main_line, { duration: 2, strokeDashoffset: 2000 }, "<")
 
             gsap.timeline({
                 scrollTrigger: {
@@ -86,7 +89,7 @@
                     start: 'top 50%',
                     end: '+=800 bottom',
                     scrub: 1,
-                    markers: true
+                    //markers: true
                 }
             })
                 .fromTo('.C_line01', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 5, ease: "power1.in" })
@@ -96,16 +99,19 @@
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.graphic_design',
-                    start: 'top 40%',
-                    end: '70% bottom',
+                    trigger: '#graphic_design',
+                    start: 'top top',
+                    end: '+=5000',
+                    pin: true,
                     scrub: 1,
                     //markers: true
                 }
             })
-                .fromTo('.G_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { top: 0, opacity: 1 }, 0)
-                .fromTo('.G_item img', { y: 100, opacity: 0, ease: "power3.out" }, { opacity: 1, y: 0, stagger: 0.7, duraition: 3 })
-
+                .fromTo('#graphic_design .title_wrap', { y: 200, opacity: 0, }, { y: 0, opacity: 1 })
+                .fromTo('#graphic_design .image_position', { y: 200, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.8, duration: 5 })
+                .to('#graphic_design .title_wrap h5, #graphic_design .title_wrap p ', { color: 'rgba(255, 255, 255, 0.4)', duration: 0.8 }, ">")
+                .to('#flip', { rotateY: 180, duration: 5, stagger: 0.8 })
+                .to('#graphic_design .image_position', { y: -100, opacity: 0, duariton: 5, stagger: 0.8 })
 
             //호버시 비디오 재생
             $('.s_item').each(function (index) {
@@ -559,25 +565,54 @@
 
             </section><!-- .clone end -->
 
-            <section class="graphic_design01" id="graphic_design01">
-                <h5>Graphic Design</h5>
-                <span class="G_01"><img src="img/bloom.jpg" alt=""></span>
-                <span class="G_02"><img src="img/크리스마스.jpg" alt=""></span>
-                <span class="G_03"><img src="img/speed.jpg" alt=""></span>
-                <span class="G_04"><img src="img/airplane.jpg" alt=""></span>
-                <span class="G_05"><img src="img/컬리02.jpg" alt=""></span>
-                <span class="G_06"><img src="img/티트리세럼.jpg" alt=""></span>
-                <span class="G_07"><img src="img/앨범표지.jpg" alt=""></span>
-                <span class="G_08"><img src="img/여름-세일.jpg" alt=""></span>
-                <span class="G_09"><img src="img/부산홍보.jpg" alt=""></span>
-                <span class="G_10"><img src="img/티트리세럼.jpg" alt=""></span>
+            <section class="graphic_design" id="graphic_design">
+                <div class="title_wrap">
+                    <h5>Graphic Design</h5>
+                    <p>Photoshop & Illustrator</p>
+                </div><!-- .title_wrap end -->
+                <div class="image_wrap">
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/airplane.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/앨범표지.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_position end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/bloom.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/speed.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/부산홍보.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/티트리세럼.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/컬리02.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/크리스마스.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/여름-세일.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+                </div><!-- .image_wrap end -->
+
             </section><!-- .graphic design end -->
 
             <section class="contact" id="contact">
                 <div class="text_wrap">
-                    <h5 class="stroke">Contact Me?</h5>
+                    <h5 class="stroke" data-aos="fade-up">Contact Me?</h5>
 
-                    <div class="wh_box">
+                    <div class="wh_box" data-aos="fade-up">
                         <p>Thank you for watching</p>
                         <div class="inner">
                             <div class="sns_wrap">
@@ -619,6 +654,10 @@
             </section><!-- .contact end -->
         </main><!-- .main end -->
     </div><!-- #wrap end -->
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

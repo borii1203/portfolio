@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MJ portfolio</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
 
@@ -111,6 +110,21 @@
                 .to('#graphic_design .title_wrap h5, #graphic_design .title_wrap p ', { color: 'rgba(255, 255, 255, 0.4)', duration: 0.8 }, ">")
                 .to('#flip', { rotateY: 180, duration: 5, stagger: 0.8 })
                 .to('#graphic_design .image_position', { y: -100, opacity: 0, duration: 5, stagger: 0.8 })
+
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start:'top 50%',
+                    end:'bottom bottom',
+                    scrub:3,
+                    delay:0.5,
+                    //markers: true
+                }
+            })
+            .fromTo('#contact .stroke', {y:2200, opacity:0},{y:0, opacity:1, duration:5, ease: "power2.inOut"})
+            .fromTo('#contact .wh_box', {scale:0, opacity:0},{scale:1, opacity:1, duration:5, ease: "power2.out"}, "+=0.8")
+
 
             //호버시 비디오 재생
             $('.s_item').each(function (index) {
@@ -306,6 +320,7 @@
                 <div class="inner">
                     <div class="item rawrow">
                         <div class="mockup">
+                            <span>스크린에 마우스를 올려보세요</span>
                             <div class="pc"><span></span></div>
 
                             <div class="mobile"><span></span></div>
@@ -313,7 +328,8 @@
 
                         <div class="info_text">
                             <p class="name">RAWROW</p>
-                            <span> '월드와이드'홈페이지 리뉴얼입니다</span>
+                            <span>'월드와이드'홈페이지 리뉴얼입니다</span>
+                            <span>2차 메뉴를 만들 때에 구조가 제대로 잡히지 않아서 비슷한 사이트의 마크업을 참고하여 작성하였습니다</span>
 
                             <ul>
                                 <li>
@@ -609,9 +625,9 @@
 
             <section class="contact" id="contact">
                 <div class="text_wrap">
-                    <h5 class="stroke" data-aos="fade-up">Contact Me?</h5>
+                    <h5 class="stroke">Contact Me?</h5>
 
-                    <div class="wh_box" data-aos="fade-up">
+                    <div class="wh_box">
                         <p>Thank you for watching</p>
                         <div class="inner">
                             <div class="sns_wrap">
@@ -653,14 +669,6 @@
             </section><!-- .contact end -->
         </main><!-- .main end -->
     </div><!-- #wrap end -->
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            AOS.init();
-        });
-    </script>
 </body>
 
 </html>

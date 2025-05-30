@@ -379,7 +379,7 @@ h5 {
 .renewal .inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding-block: 150px;
+    padding-block: 200px;
 
 }
 
@@ -396,6 +396,14 @@ h5 {
 
 .renewal .item .mockup {
     position: relative;
+}
+
+.renewal .item .mockup>span {
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: -2%;
+    left: 32%;
 }
 
 .renewal .item .mockup .pc {
@@ -436,12 +444,18 @@ h5 {
 }
 
 .renewal .info_text>span {
+    display: block;
     font-size: 20px;
+}
+
+.renewal .info_text>span:nth-of-type(2) {
+    font-size: 16px;
+    margin-top: 4px;
 }
 
 .renewal .info_text ul {
     margin-top: 56px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .renewal .info_text ul li {

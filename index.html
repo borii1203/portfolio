@@ -115,15 +115,15 @@
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '#contact',
-                    start:'top 50%',
-                    end:'bottom bottom',
-                    scrub:3,
-                    delay:0.5,
+                    start: 'top 50%',
+                    end: 'bottom bottom',
+                    scrub: 3,
+                    delay: 0.5,
                     //markers: true
                 }
             })
-            .fromTo('#contact .stroke', {y:2200, opacity:0},{y:0, opacity:1, duration:5, ease: "power2.inOut"})
-            .fromTo('#contact .wh_box', {scale:0, opacity:0},{scale:1, opacity:1, duration:5, ease: "power2.out"}, "+=0.8")
+                .fromTo('#contact .stroke', { y: 2200, opacity: 0 }, { y: 0, opacity: 1, duration: 5, ease: "power2.inout" })
+                .fromTo('#contact .wh_box', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 5, ease: "power2.out" }, "+=0.8")
 
 
             //호버시 비디오 재생
@@ -270,14 +270,14 @@
                             <p>Education</p>
                             <ul>
                                 <li>
-                                    <span>동아대학교 중국어학과 졸업(경영학과 복수전공)</span>
-                                    <span class="date">2022.07</span>
-                                </li>
-
-                                <li>
                                     <span>그린컴퓨터 아카데미 트렌디한 UI/UX 반응형 웹제작을 위한 웹퍼블리셔 양성과정 수료</span>
 
                                     <span class="date">2025.06</span>
+                                </li>
+
+                                <li>
+                                    <span>동아대학교 중국어학과 졸업(경영학과 복수전공)</span>
+                                    <span class="date">2022.07</span>
                                 </li>
                             </ul>
                         </div><!-- .education end -->
@@ -297,7 +297,7 @@
                             </ul>
                         </div><!-- .skil end -->
 
-                        <a href="img/입사지원서.pdf">이력서 확인하기</a>
+                        <a href="img/입사지원서.pdf" target="_blank">이력서 확인하기</a>
                     </div><!-- .sub_profile end -->
                 </div><!-- .inner end -->
 
@@ -318,6 +318,7 @@
 
             <section class="renewal" id="renewal">
                 <div class="inner">
+                    <h5>Project</h5>
                     <div class="item rawrow">
                         <div class="mockup">
                             <span>스크린에 마우스를 올려보세요</span>
@@ -354,8 +355,8 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="#">PROCESS</a>
-                                <a class="line_color" href="borii1203.github.io/rawrow/">WEBSITE</a>
+                                <a href="#" target="_blank">PROCESS</a>
+                                <a class="line_color" href="borii1203.github.io/rawrow/" target="_blank">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -368,6 +369,8 @@
                         <div class="info_text">
                             <p class="name">B'AMU hotel&spa</p>
                             <span>호텔 '바뮤'홈페이지 리뉴얼입니다</span>
+                            <span>모달창을 띄웠을 때 배경이 아닌 다른 부분을 클릭해도 창이 닫기는 문제를 '===' 연산자를 사용하여 정확히 같은 요소를 선택했을 때에만 닫기도록
+                                하였습니다.</span>
 
                             <ul>
                                 <li>
@@ -382,7 +385,7 @@
 
                                 <li>
                                     <span class="list_type">Tool</span>
-                                    <span class="list_name">Html, Css, Figma, Photoshop</span>
+                                    <span class="list_name">Html, Css, Vscode, Figma, Photoshop</span>
                                 </li>
 
                                 <li>
@@ -392,8 +395,9 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="img/바뮤 호텔 프로세스.pdf">PROCESS</a>
-                                <a class="line_color" href="https://borii1203.github.io/site-b-amu-hotel/">WEBSITE</a>
+                                <a href="img/바뮤 호텔 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-b-amu-hotel/"
+                                    target="_blank">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -406,6 +410,7 @@
                         <div class="info_text">
                             <p class="name">oa</p>
                             <span>일상제품을 판매하는 '오아'홈페이지 리뉴얼입니다</span>
+                            <span>aos효과로 인해 발생하는 가로 스크롤을 overflowX=hidden을 이용하여 숨겨주었습니다.</span>
 
                             <ul>
                                 <li>
@@ -420,7 +425,7 @@
 
                                 <li>
                                     <span class="list_type">Tool</span>
-                                    <span class="list_name">Html, Css, Photoshop</span>
+                                    <span class="list_name">Html, Css, Vscode, Photoshop</span>
                                 </li>
 
                                 <li>
@@ -430,8 +435,9 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="img/오아 프로세스.pdf">PROCESS</a>
-                                <a class="line_color" href="https://borii1203.github.io/site-oa/">WEBSITE</a>
+                                <a href="img/오아 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-oa/"
+                                    target="_blank">WEBSITE</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -444,7 +450,7 @@
 
                         <div class="info_text">
                             <p class="name">테이블링</p>
-                            <span>웨이팅 어플 '테이블링'앱 리뉴얼입니다</span>
+                            <span>웨이팅 어플 '테이블링'앱 리디자인입니다.</span>
 
                             <ul>
                                 <li>
@@ -469,9 +475,14 @@
                             </ul>
 
                             <div class="site_wrap">
-                                <a href="img/테이블링 프로세스.pdf">PROCESS</a>
+                                <a href="img/테이블링 프로세스.pdf" target="_blank">PROCESS</a>
                                 <a class="line_color"
-                                    href="https://www.figma.com/design/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=QExgGWP4MRte4Jdc-0">FIGMA</a>
+                                    href="https://www.figma.com/design/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=QExgGWP4MRte4Jdc-0"
+                                    target="_blank">FIGMA</a>
+
+                                <a class="line_color"
+                                    href="https://www.figma.com/proto/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=15-278&t=VaWTQvdxdn2orutj-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=15%3A278"
+                                    target="_blank">Prototype</a>
                             </div><!-- .site_wrap end -->
                         </div><!-- .info_text end -->
                     </div><!-- .item end -->
@@ -486,11 +497,11 @@
                 <div class="C_title">
                     <h5>Project</h5>
 
-                    <p>여러 모작했던 사이트들입니다</p>
+                    <p>모작했던 사이트들입니다</p>
                 </div><!-- .C_title end -->
 
                 <div class="C_line">
-                    <svg class="C_line01" width="1078" height="624" viewBox="0 0 1078 624" fill="none"
+                    <svg class="C_line01" width="1978" height="824" viewBox="0 0 1078 624" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M587.438 456.723C722.456 411.16 839.121 353.584 918.595 297.365C958.339 269.25 988.71 241.525 1007.44 215.871C1026.19 190.178 1033.06 166.864 1026.48 147.381C1019.91 127.897 1000.32 113.512 969.831 104.436C939.39 95.374 898.43 91.7196 849.777 93.4351C752.49 96.8654 624.793 121.751 489.775 167.314C354.758 212.876 238.093 270.452 158.619 326.671C118.875 354.786 88.5042 382.511 69.7784 408.165C51.0235 433.858 44.1555 457.172 50.7305 476.655C57.3054 496.139 76.8952 510.524 107.383 519.6C137.824 528.662 178.784 532.316 227.437 530.601C324.724 527.171 452.421 502.285 587.438 456.723Z"
@@ -501,7 +512,7 @@
                     </svg>
 
 
-                    <svg class="C_line02" width="1019" height="764" viewBox="0 0 1019 764" fill="none"
+                    <svg class="C_line02" width="1919" height="924" viewBox="0 0 1019 764" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M577.522 271.382C699.044 345.831 801.346 425.731 868.509 494.698C902.099 529.19 926.839 560.886 940.819 587.747C954.849 614.704 957.805 636.314 948.776 651.052C939.747 665.79 919.152 672.972 888.763 672.717C858.483 672.463 819.008 664.819 773.023 650.56C681.074 622.05 563.426 567.201 441.903 492.752C320.381 418.303 218.08 338.404 150.917 269.436C117.327 234.944 92.586 203.248 78.6063 176.388C64.5764 149.43 61.6211 127.821 70.6502 113.083C79.6793 98.3443 100.273 91.162 130.662 91.417C160.942 91.6711 200.417 99.3161 246.403 113.575C338.352 142.085 456 196.934 577.522 271.382Z"
@@ -523,7 +534,7 @@
                         </div><!-- .relative end -->
                     </div><!-- .s_item end -->
 
-                    <div class="b_item b_item_left">
+                    <div class="b_item">
                         <video src="img/대관령음악제.mp4" muted loop></video>
 
                         <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다. <br>
@@ -540,7 +551,7 @@
                         </div><!-- .relative end -->
                     </div><!-- .s_item end -->
 
-                    <div class="b_item b_item_left">
+                    <div class="b_item">
                         <video src="img/즐거운.mp4" muted loop></video>
 
                         <p>Java Script를 이용하여 헤더의 색상 변화와 스크롤의 값을 구하여 Top버튼의 유무를 조절하였습니다.</p>
@@ -556,7 +567,7 @@
                         </div><!-- .relative end -->
                     </div><!-- .s_item end -->
 
-                    <div class="b_item b_item_right">
+                    <div class="b_item">
                         <video src="img/스캘터랩스.mp4" muted loop></video>
                         <p>responsive-breakpoint를 이용하여 반응형에 따른 슬라이드 개수 값을 조절하였습니다.</p>
                     </div><!-- .b_item end -->
@@ -571,13 +582,28 @@
                         </div><!-- .relative end -->
                     </div><!-- .s_item end -->
 
-                    <div class="b_item b_item_right">
+                    <div class="b_item">
                         <video src="img/머니트리.mp4" muted loop></video>
 
                         <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
                     </div><!-- .b_item end -->
                 </div><!-- .festival end -->
 
+                <div class="item robotori">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/로보토리_메인.png" alt="">
+
+                            <a href="borii1203.github.io/robotori/">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/머니트리.mp4" muted loop></video>
+
+                        <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
             </section><!-- .clone end -->
 
             <section class="graphic_design" id="graphic_design">
@@ -596,6 +622,7 @@
                     <div class="image_position">
                         <div class="image_box" id="flip">
                             <div class="image_f"><img src="img/bloom.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/nike.jpg" alt=""></div>
                         </div><!-- .image_box end -->
                     </div><!-- .image_box end -->
 

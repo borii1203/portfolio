@@ -636,8 +636,7 @@ h5 {
     text-transform: uppercase;
     position: absolute;
     top: 0;
-    left: 0;
-
+    left: 0;gh
     display: flex;
     align-items: center;
     justify-content: center;
@@ -733,9 +732,9 @@ h5 {
 
 .graphic_design .title_wrap {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 1;
 }
 

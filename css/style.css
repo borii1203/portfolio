@@ -237,7 +237,7 @@ h5 {
 }
 
 .wh_start span {
-    display: blcok;
+    display: block;
     background-color: #eee;
     width: 2500px;
     height: 2500px;
@@ -485,19 +485,35 @@ h5 {
 }
 
 .renewal .bamu_hotel .mockup .pc {
-    background: url('../img/바뮤_목업.png') center center / 100% no-repeat;
+    background: url('../img/바뮤호텔_목업PC.png') center center / 100% no-repeat;
 }
 
 .renewal .bamu_hotel .mockup .pc span {
-    background: url('../img/바뮤_스크롤.png') 0 0 / 100% no-repeat;
+    background: url('../img/바뮤호텔_스크롤PC.png') 0 0 / 100% no-repeat;
+}
+
+.renewal .bamu_hotel .mockup .mobile {
+    background: url('../img/바뮤호텔_목업M.png') center center / 100% no-repeat;
+}
+
+.renewal .bamu_hotel .mockup .mobile span {
+    background: url('../img/바뮤호텔_스크롤M.png') 0 0 / 100% no-repeat;
 }
 
 .renewal .oa .mockup .pc {
-    background: url('../img/오아_목업.png') center center / 100% no-repeat;
+    background: url('../img/오아_목업PC.png') center center / 100% no-repeat;
 }
 
 .renewal .oa .mockup .pc span {
     background: url('../img/오아_스크롤.JPG') center top / 104% no-repeat;
+}
+
+.renewal .oa .mockup .mobile {
+    background: url('../img/오아_목업M.png') center center / 100% no-repeat;
+}
+
+.renewal .oa .mockup .mobile span {
+    background: url('../img/오아_스크롤M.png') center top / 104% no-repeat;
 }
 
 .renewal .tabling .mockup .pc {

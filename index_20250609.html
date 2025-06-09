@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script type="text/javascript" src="https://cydstumpel.nl/wp-content/themes/portfolio-2025/assets/main.js?ver=3034"
+        id="theme-appjs-js"></script>
+
+
+    <!-- Setup and start animation! -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        $(function () {
+            var $top_sq01 = $("#top_sq_01"),
+                $top_sq02 = $("#top_sq_02"),
+                $top_line = $("#top_line"),
+                $bottom_sq01 = $("#bottom_sq_01"),
+                $bottom_sq02 = $("#bottom_sq_02"),
+                $bottom_line = $("#bottom_line"),
+                $main_line = $(".main_line svg")
+
+            gsap.timeline()
+                .from($top_sq02, { duration: 0.5, opacity: 0, y: 100 })
+                .from($bottom_sq01, { duration: 0.8, opacity: 0, y: -100 }, "<")
+                .from($top_line, { duration: 1, height: 0, delay: 0.5 })
+                .from($bottom_line, { duration: 1, height: 0 }, "<")
+                .from($main_line, { duration: 2, strokeDashoffset: 2000 }, "<")
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.wh_start',
+                    start: '-10% 50%',
+                    end: '60% 60%',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.circle', { 'width': '0', 'height': '0', 'duration': '10', 'ease': 'elastic', 'top': '5%' }, { 'width': '2500px', 'height': '2500px', 'duration': '10', 'top': '30%' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.wh_start .text',
+                    start: '0 80%',
+                    end: '100% 80%',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.wh_start .text', { 'top': '80%', 'duration': '5', 'ease': 'elastic', 'opacity': '0' }, { 'top': '50%', 'duration': '5', 'opacity': '1' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.wh_end',
+                    start: '80% 60%',
+                    end: '110% 50%',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.circle02', { 'width': '2500px', 'height': '2500px', 'duration': '5', 'bottom': '30%', 'ease': 'elastic' }, { 'width': '0', 'height': '0', 'bottom': '5%' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.clone',
+                    start: 'top 40%',
+                    end: '70% bottom',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.C_title', { top: '50%', duration: 5, 'ease': 'elastic', opacity: 0 }, { 'top': '0', 'duration': '5', 'opacity': '1', 'ease': 'none' })
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.C_line',
+                    start: 'top 50%',
+                    end: '+=800 bottom',
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('.C_line01', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 5, ease: "power1.in" })
+                .fromTo('.C_line02', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 5, ease: "power1.in" }, ">")
+                .from('.s_item', { scale: 0, duration: 1, ease: "linear" })
+
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#graphic_design',
+                    start: 'top top',
+                    end: '+=5000',
+                    pin: true,
+                    scrub: 1,
+                    //markers: true
+                }
+            })
+                .fromTo('#graphic_design .title_wrap', { y: 200, opacity: 0, }, { y: 0, opacity: 1 })
+                .fromTo('#graphic_design .image_position', { y: 200, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.8, duration: 5 })
+                .to('#flip', { rotateY: 180, duration: 5, stagger: 0.8 })
+                .to('#graphic_design .image_position', { y: -100, opacity: 0, duration: 5, stagger: 0.8 })
+
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 50%',
+                    end: 'bottom bottom',
+                    scrub: 3,
+                    delay: 0.5,
+                    //markers: true
+                }
+            })
+                .fromTo('#contact .stroke', { y: 2200, opacity: 0 }, { y: 0, opacity: 1, duration: 5, ease: "power2.inout" })
+                .fromTo('#contact .wh_box', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 5, ease: "power2.out" }, "+=0.8")
+
+
+            //호버시 비디오 재생
+            $('.s_item').each(function (index) {
+                $(this).hover(
+                    function () {
+                        $('.b_item').eq(index).find('video')[0].play();
+                    },
+                    function () {
+                        const video = $('.b_item').eq(index).find('video')[0];
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                );
+            });
+
+            //스크롤시 네비 색상 변경
+            $(window).on('scroll', function () {
+                let scrollBar = $(window).scrollTop();
+                console.log(scrollBar);
+
+                if (scrollBar >= 1200 && scrollBar <= 6900) {
+                    $('.header .nav .gnb').addClass('black')
+                } else {
+                    $('.header .nav .gnb').removeClass('black')
+                }
+            });//scroll end
+        });//script end
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <main class="main">
+            <section class="main_visual" id="info">
+                <header class="header">
+                    <nav class="nav">
+                        <ul class="gnb">
+                            <li><a href="#info">Info</a></li>
+                            <li><a href="#profile">About</a></li>
+                            <li><a href="#renewal">Project</a></li>
+                            <li><a href="#graphic_design">Graphic design</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </header><!-- .header end -->
+                <section class="homepage-header" style="--color-accent: #8082f8;">
+                    <p class="sub_title">Web Design & Publishing</p>
+
+                    <div class="homepage-header__titles">
+                        <h1 class="homepage-header__title homepage-header__title--top huge-hero vf caps start"
+                            aria-hidden="true">
+                            MJ's </h1>
+
+                        <h1 class="homepage-header__title homepage-header__title--bottom huge-hero vf caps end"
+                            aria-hidden="true">
+                            Portfolio</h1>
+
+                        <div class="main_line">
+                            <svg width="748" height="621" viewBox="0 0 748 621" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M419.478 250.848C509.712 319.583 586.184 388.6 636.877 444.602C662.232 472.612 681.085 497.31 691.998 517.05C697.458 526.926 700.886 535.481 702.18 542.538C703.475 549.599 702.603 554.953 699.756 558.691C696.909 562.428 691.979 564.692 684.827 565.319C677.68 565.946 668.521 564.913 657.551 562.273C635.621 556.996 606.802 545.379 573.063 528.376C505.607 494.38 418.756 438.989 328.522 370.254C238.288 301.52 161.817 232.502 111.123 176.5C85.7687 148.49 66.9144 123.792 56.0012 104.052C50.5418 94.1768 47.1137 85.6214 45.8194 78.5646C44.5242 71.5031 45.3973 66.1486 48.2442 62.4112C51.0912 58.674 56.0211 56.4105 63.1726 55.7834C70.3197 55.1567 79.4784 56.1891 90.4491 58.8292C112.379 64.1067 141.198 75.7224 174.937 92.7259C242.393 126.722 329.243 182.114 419.478 250.848Z"
+                                    stroke="white" stroke-width="3" />
+                                <path
+                                    d="M420.395 250.918C505.389 315.661 577.124 381.072 624.397 434.475C648.039 461.183 665.528 484.85 675.505 503.9C680.495 513.428 683.578 521.749 684.637 528.685C685.696 535.619 684.717 541.054 681.738 544.965C678.758 548.877 673.778 551.264 666.812 552.086C659.844 552.908 651.002 552.145 640.491 549.866C619.475 545.307 592.014 534.733 559.985 519.035C495.943 487.646 413.827 435.863 328.833 371.12C243.839 306.377 172.104 240.966 124.83 187.562C101.188 160.854 83.6998 137.188 73.7225 118.138C68.7325 108.61 65.6491 100.289 64.5903 93.3528C63.5319 86.4187 64.5111 80.983 67.4905 77.0717C70.4699 73.1606 75.4498 70.7732 82.4158 69.9517C89.3837 69.1301 98.2252 69.8923 108.736 72.1722C129.752 76.7307 157.214 87.3045 189.242 103.003C253.285 134.392 335.401 186.176 420.395 250.918Z"
+                                    stroke="white" stroke-width="2" />
+                            </svg>
+                        </div><!-- .main_line end -->
+                    </div>
+
+                    <div id="text_mask">
+                        <div id="text_top">
+                            <div id="top_sq_01"></div>
+                            <div id="top_line"></div>
+                            <div id="top_sq_02"></div>
+                        </div><!-- .top_line end -->
+
+                        <div id="text_bottom">
+                            <div id="bottom_sq_01"></div>
+                            <div id="bottom_line"></div>
+                            <div id="bottom_sq_02"></div>
+                        </div><!-- .text_bottom end -->
+                    </div><!-- .text_mask end -->
+                </section><!-- .homepage-header end -->
+            </section><!-- .main_visual end -->
+
+            <section class="wh_start">
+                <span class="circle"></span>
+                <div class="text">
+                    I'm Passtionate and<br>
+                    have good communication skills
+                </div><!-- .text end -->
+            </section><!-- wh_start. end -->
+
+            <section class="profile" id="profile">
+                <div class="inner">
+                    <div class="main_profile">
+                        <div class="image">
+                            <img src="img/서민지.jpg" alt="">
+                        </div>
+
+                        <ul class="basic_info">
+                            <li>
+                                <span class="info_t">Name</span>
+                                <span>서민지</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Birth</span>
+                                <span>1998.12.25</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Phone</span>
+                                <span>010-4750-5206</span>
+                            </li>
+
+                            <li>
+                                <span class="info_t">Email</span>
+                                <span>1minji@naver.com</span>
+                            </li>
+                        </ul><!-- .basic_info end -->
+                    </div><!-- .main_profile end -->
+
+                    <div class="sub_profile">
+                        <div class="certification">
+                            <p>Certification</p>
+
+                            <ul>
+                                <li>
+                                    <span>Gtqi 일러스트 1급</span>
+                                    <span class="date">2025.03</span>
+                                </li>
+
+                                <li>
+                                    <span>자동차운전면허 2종보통</span>
+                                    <span class="date">2017.03</span>
+                                </li>
+                            </ul>
+                        </div><!-- .certification end -->
+
+                        <div class="education">
+                            <p>Education</p>
+                            <ul>
+                                <li>
+                                    <span>그린컴퓨터 아카데미 트렌디한 UI/UX 반응형 웹제작을 위한 웹퍼블리셔 양성과정 수료</span>
+
+                                    <span class="date">2025.06</span>
+                                </li>
+
+                                <li>
+                                    <span>동아대학교 중국어학과 졸업(경영학과 복수전공)</span>
+                                    <span class="date">2022.07</span>
+                                </li>
+                            </ul>
+                        </div><!-- .education end -->
+
+                        <div class="skill">
+                            <p>Skill</p>
+                            <ul>
+                                <li><img src="img/photoshop.png" alt="photoshop"></li>
+                                <li><img src="img/illustrator.png" alt="illustrator"></li>
+                                <li><img src="img/html.png" alt="html"></li>
+                                <li><img src="img/css.png" alt="css"></li>
+                                <li><img src="img/scss.svg" alt="scss"></li>
+                                <li><img src="img/js.png" alt="js"></li>
+                                <li><img src="img/jquery.png" alt="jquery"></li>
+                                <li><img src="img/github.png" alt="github"></li>
+                                <li><img src="img/react.png" alt="react"></li>
+                            </ul>
+                        </div><!-- .skil end -->
+
+                        <a href="img/입사지원서.pdf" target="_blank">이력서 확인하기</a>
+                    </div><!-- .sub_profile end -->
+                </div><!-- .inner end -->
+
+                <div id="text_mask">
+                    <div id="text_top">
+                        <div id="top_sq_01"></div>
+                        <div id="top_line"></div>
+                        <div id="top_sq_02"></div>
+                    </div><!-- .top_line end -->
+
+                    <div id="text_bottom">
+                        <div id="bottom_sq_01"></div>
+                        <div id="bottom_line"></div>
+                        <div id="bottom_sq_02"></div>
+                    </div><!-- .text_bottom end -->
+                </div><!-- .text_mask end -->
+            </section><!-- .profile end -->
+
+            <section class="renewal" id="renewal">
+                <div class="inner">
+                    <h5>Project</h5>
+                    <div class="item rawrow">
+                        <div class="mockup">
+                            <span>스크린에 마우스를 올려보세요</span>
+                            <div class="pc"><span></span></div>
+
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .image end -->
+
+                        <div class="info_text">
+                            <p class="name">WORLD WIDE</p>
+                            <span>'월드와이드'홈페이지 리뉴얼입니다</span>
+                            <span>2차 메뉴를 만들 때에 구조가 제대로 잡히지 않아서 비슷한 사이트의 마크업을 참고하여 작성하였습니다</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Responsive Web</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Jquery, Vscode, Figma</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="/img/월드와이드 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/worldwide/" target="_blank">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item bamu_hotel">
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .mockup end -->
+
+                        <div class="info_text">
+                            <p class="name">B'AMU hotel&spa</p>
+                            <span>호텔 '바뮤'홈페이지 리뉴얼입니다</span>
+                            <span>모달창을 띄웠을 때 배경이 아닌 다른 부분을 클릭해도 창이 닫기는 문제를 '===' 연산자를 사용하여 정확히 같은 요소를 선택했을 때에만 닫기도록
+                                하였습니다.</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Responsive Web</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Vscode, Figma, Photoshop</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="img/바뮤 호텔 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-b-amu-hotel/"
+                                    target="_blank">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item oa">
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .mockup end -->
+
+                        <div class="info_text">
+                            <p class="name">oa</p>
+                            <span>일상제품을 판매하는 '오아'홈페이지 리뉴얼입니다</span>
+                            <span>aos효과로 인해 발생하는 가로 스크롤을 overflowX=hidden을 이용하여 숨겨주었습니다.</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Responsive Web</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Html, Css, Vscode, Photoshop</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인, 퍼블리싱 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="img/오아 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color" href="https://borii1203.github.io/site-oa/"
+                                    target="_blank">WEBSITE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+
+                    <div class="item tabling">
+                        <div class="mockup">
+                            <div class="pc"><span></span></div>
+                            <div class="mobile"><span></span></div>
+                        </div><!-- .mockup end -->
+
+                        <div class="info_text">
+                            <p class="name">테이블링</p>
+                            <span>웨이팅 어플 '테이블링'앱 리디자인입니다.</span>
+
+                            <ul>
+                                <li>
+                                    <span class="list_type">Type</span>
+                                    <span class="list_name">Mobile App</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Page</span>
+                                    <span class="list_name">Main page</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">Tool</span>
+                                    <span class="list_name">Figma, Illustrator</span>
+                                </li>
+
+                                <li>
+                                    <span class="list_type">참여도</span>
+                                    <span class="list_name">디자인 100%</span>
+                                </li>
+                            </ul>
+
+                            <div class="site_wrap">
+                                <a href="img/테이블링 프로세스.pdf" target="_blank">PROCESS</a>
+                                <a class="line_color"
+                                    href="https://www.figma.com/design/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=QExgGWP4MRte4Jdc-0"
+                                    target="_blank">FIGMA</a>
+
+                                <a class="line_color"
+                                    href="https://www.figma.com/proto/HBuW6brC266nYkyhEbgjuH/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81-%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=15-278&t=VaWTQvdxdn2orutj-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=15%3A278"
+                                    target="_blank">PROTOTYPE</a>
+                            </div><!-- .site_wrap end -->
+                        </div><!-- .info_text end -->
+                    </div><!-- .item end -->
+                </div><!-- .inner end -->
+            </section><!-- .renewal end -->
+
+            <section class="wh_end">
+                <span class="circle02"></span>
+            </section><!-- .wh_end end -->
+
+            <section class="clone" id="clone">
+                <div class="C_title">
+                    <h5>Project</h5>
+
+                    <p>모작했던 사이트들입니다</p>
+                </div><!-- .C_title end -->
+
+                <div class="C_line">
+                    <svg class="C_line01" width="1978" height="824" viewBox="0 0 1078 624" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M587.438 456.723C722.456 411.16 839.121 353.584 918.595 297.365C958.339 269.25 988.71 241.525 1007.44 215.871C1026.19 190.178 1033.06 166.864 1026.48 147.381C1019.91 127.897 1000.32 113.512 969.831 104.436C939.39 95.374 898.43 91.7196 849.777 93.4351C752.49 96.8654 624.793 121.751 489.775 167.314C354.758 212.876 238.093 270.452 158.619 326.671C118.875 354.786 88.5042 382.511 69.7784 408.165C51.0235 433.858 44.1555 457.172 50.7305 476.655C57.3054 496.139 76.8952 510.524 107.383 519.6C137.824 528.662 178.784 532.316 227.437 530.601C324.724 527.171 452.421 502.285 587.438 456.723Z"
+                            stroke="white" stroke-width="3" />
+                        <path
+                            d="M588.517 456.887C715.699 413.969 825.285 358.778 899.65 304.269C936.837 277.011 965.169 249.957 982.5 224.735C999.843 199.495 1006.06 176.262 999.396 156.522C992.735 136.782 973.714 122.065 944.624 112.494C915.554 102.929 876.622 98.5744 830.523 99.4221C738.336 101.117 617.716 123.612 490.535 166.53C363.353 209.449 253.766 264.639 179.401 319.148C142.214 346.406 113.881 373.459 96.5504 398.682C79.2074 423.922 72.9934 447.155 79.6549 466.895C86.3164 486.635 105.337 501.352 134.427 510.923C163.497 520.487 202.428 524.842 248.528 523.995C340.715 522.299 461.336 499.805 588.517 456.887Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+
+
+                    <svg class="C_line02" width="1919" height="924" viewBox="0 0 1019 764" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M577.522 271.382C699.044 345.831 801.346 425.731 868.509 494.698C902.099 529.19 926.839 560.886 940.819 587.747C954.849 614.704 957.805 636.314 948.776 651.052C939.747 665.79 919.152 672.972 888.763 672.717C858.483 672.463 819.008 664.819 773.023 650.56C681.074 622.05 563.426 567.201 441.903 492.752C320.381 418.303 218.08 338.404 150.917 269.436C117.327 234.944 92.586 203.248 78.6063 176.388C64.5764 149.43 61.6211 127.821 70.6502 113.083C79.6793 98.3443 100.273 91.162 130.662 91.417C160.942 91.6711 200.417 99.3161 246.403 113.575C338.352 142.085 456 196.934 577.522 271.382Z"
+                            stroke="white" stroke-width="3" />
+                        <path
+                            d="M578.61 271.462C693.077 341.589 789.002 417.584 851.561 483.742C882.845 516.827 905.745 547.409 918.461 573.531C931.202 599.703 933.59 621.114 924.398 636.118C915.207 651.121 895.047 658.718 865.943 659.256C836.895 659.792 799.249 653.281 755.565 640.437C668.21 614.752 556.936 563.811 442.469 493.685C328.003 423.559 232.077 347.563 169.518 281.405C138.234 248.32 115.334 217.738 102.618 191.616C89.8773 165.444 87.4892 144.033 96.6806 129.029C105.872 114.026 126.032 106.428 155.136 105.891C184.184 105.355 221.83 111.866 265.515 124.71C352.869 150.395 464.144 201.336 578.61 271.462Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+
+
+                </div><!-- .C_line end -->
+
+                <div class="item festival">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/음악제_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/deagwangryeong-music-festival/" target="_blank">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/대관령음악제.mp4" muted loop></video>
+
+                        <p>홈페이지를 반응형으로 제작하였으며 scss를 이용하여 모작하였습니다. <br>
+                        </p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item jeulgeoun">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/즐거운_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/jeulgeoun/" target="_blank">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/즐거운.mp4" muted loop></video>
+
+                        <p>Java Script를 이용하여 헤더의 색상 변화와 스크롤의 값을 구하여 Top버튼의 유무를 조절하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item skelterlabs">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/스켈터랩스_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/skelter-labs/" target="_blank">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/스캘터랩스.mp4" muted loop></video>
+                        <p>responsive-breakpoint를 이용하여 반응형에 따른 슬라이드 개수 값을 조절하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item moneytree">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/머니트리_메인.JPG" alt="">
+
+                            <a href="https://borii1203.github.io/moneytree/" target="_blank">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/머니트리.mp4" muted loop></video>
+
+                        <p>제이쿼리를 이용하여 버튼을 누르면 아이템의 내용이 변화하도록 하였으며, 여러 슬라이드들을 나열하여 일정하게 흘러가도록 하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+
+                <div class="item robotori">
+                    <div class="s_item">
+                        <div class="relative">
+                            <img src="img/로보토리_메인.png" alt="">
+
+                            <a href="https://borii1203.github.io/robotori/" target="_blank">website</a>
+                        </div><!-- .relative end -->
+                    </div><!-- .s_item end -->
+
+                    <div class="b_item">
+                        <video src="img/로보토리.mp4" muted loop></video>
+
+                        <p>호버시에 플립되는 카드를 만들기 위해 preserve-3d를 이용하였습니다.</p>
+                    </div><!-- .b_item end -->
+                </div><!-- .festival end -->
+            </section><!-- .clone end -->
+
+            <section class="graphic_design" id="graphic_design">
+                <div class="title_wrap">
+                    <h5>Graphic Design</h5>
+                    <p>Photoshop & Illustrator</p>
+                </div><!-- .title_wrap end -->
+                <div class="image_wrap">
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/airplane.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/앨범표지.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_position end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/bloom.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/nike.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/speed.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/부산홍보.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/티트리세럼.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/컬리02.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+
+                    <div class="image_position">
+                        <div class="image_box" id="flip">
+                            <div class="image_f"><img src="img/크리스마스.jpg" alt=""></div>
+                            <div class="image_b"><img src="img/여름-세일.jpg" alt=""></div>
+                        </div><!-- .image_box end -->
+                    </div><!-- .image_box end -->
+                </div><!-- .image_wrap end -->
+
+            </section><!-- .graphic design end -->
+
+            <section class="contact" id="contact">
+                <div class="text_wrap">
+                    <h5 class="stroke">Contact Me?</h5>
+
+                    <div class="wh_box">
+                        <p>Thank you for watching</p>
+                        <div class="inner">
+                            <div class="sns_wrap">
+                                <ul>
+                                    <li>
+                                        <span class="icon_k icon"></span>
+                                        <span>010-4750-5206</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="icon_m icon"></span>
+                                        <span>1minji@naver.com</span>
+                                    </li>
+                                </ul>
+
+                                <img src="img/kakaotalk.jpg" alt="">
+                            </div><!-- .sns_wrap end -->
+
+                            <div class="flex">
+                                <a href="https://github.com/borii1203" target="_blank">GitHub</a>
+                                <a href="img/포트폴리오.pdf" target="_blank">Download portfolio</a>
+
+                            </div><!-- .flex end -->
+                        </div><!-- .inner end -->
+                    </div><!-- .wh_box end -->
+                </div><!-- .text_wrap end -->
+
+
+
+                <div class="image_wrap">
+                    <img class="planet planet_b" src="img/planet_01.png" alt="">
+                    <img class="planet planet_t" src="img/planet_04.png" alt="">
+                    <img class="star_t" src="img/star.png" alt="">
+                    <img class="star_m" src="img/star.png" alt="">
+                    <img class="star_b" src="img/star.png" alt="">
+                </div><!-- .image_wrap end -->
+
+                <span>© 2025.Minji.ALL RIGHTS RESERVED.</span>
+            </section><!-- .contact end -->
+        </main><!-- .main end -->
+    </div><!-- #wrap end -->
+</body>
+
+</html>

@@ -484,6 +484,30 @@ h5 {
     width: 80px;
 }
 
+.renewal .rawrow .mockup .pc {
+    background: url('../img/로우로우_목업PC.png') center center / 100% no-repeat;
+}
+
+.renewal .rawrow .mockup .pc span {
+    background: url('../img/로우로우_스크롤PC.png') center top / 120% no-repeat;
+}
+
+.renewal .rawrow .mockup .mobile {
+    background: url('../img/로우로우_목업M.png') center center / 100% no-repeat;
+}
+
+.renewal .rawrow .mockup .mobile span {
+    background: url('../img/로우로우_스크롤M.png') center top / 100% no-repeat;
+}
+
+.renewal .sungsimdang .mockup .pc {
+    background: url('../img/성심당_목업PC.png') center center / 100% no-repeat;
+}
+
+.renewal .sungsimdang .mockup .pc span {
+    background: url('../img/성심당_스크롤PC.png') center top / 120% no-repeat;
+}
+
 .renewal .bamu_hotel .mockup .pc {
     background: url('../img/바뮤호텔_목업PC.png') center center / 100% no-repeat;
 }
@@ -520,21 +544,6 @@ h5 {
     background: url('../img/테이블링_목업.png') center center / 100% no-repeat;
 }
 
-.renewal .rawrow .mockup .pc {
-    background: url('../img/로우로우_목업PC.png') center center / 100% no-repeat;
-}
-
-.renewal .rawrow .mockup .pc span {
-    background: url('../img/로우로우_스크롤PC.png') center top / 120% no-repeat;
-}
-
-.renewal .rawrow .mockup .mobile {
-    background: url('../img/로우로우_목업M.png') center center / 100% no-repeat;
-}
-
-.renewal .rawrow .mockup .mobile span {
-    background: url('../img/로우로우_스크롤M.png') center top / 100% no-repeat;
-}
 
 .renewal .mockup span:hover {
     animation: site_scroll 15s ease-in-out infinite;
@@ -686,7 +695,7 @@ h5 {
     width: 450px;
     height: 400px;
     background-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0px 2px 20px 10px #9184da7e;
+    box-shadow: 0px 2px 20px 10px #9184da7e;
     border-radius: 8px;
     backdrop-filter: blur(4px);
 

@@ -291,8 +291,7 @@ h5 {
 .profile .inner .main_profile .image img {
     width: 100%;
     height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 999;
 }
 
